@@ -4,16 +4,14 @@ const htmlToJson = require('html-to-json');
 const moment = require('moment');
 
 const SCHEDULE_URL = 'http://www.teamsideline.com/Org/StandingsResults.aspx?d=xRIu3qqX6IiJhYMtStQM13QZD5DztI3Tvequts2hASiE1qGPloCO87eZyrOLYZQibhUCMiC0XyY%3d';
+const GAME_TABLE_SELECTOR = '#ctl00_OrgContentUnit_ScheduleGrid_ctl00 tbody';
 
 module.exports = fetchSchedule;
 
 function fetchSchedule() {
   return scrapeHtmlFromUrl(SCHEDULE_URL)
-    .then((html) => {
-      var schedule = html('#ctl00_OrgContentUnit_ScheduleGrid_ctl00 tbody').html();
-      return convertScheduleToJson(schedule);
-    })
-    .then((scheduleJson) => {
+    .then(html => convertScheduleToJson(html(GAME_TABLE_SELECTOR).html()))
+    .then(scheduleJson => {
       return { data: scheduleJson, raw: SCHEDULE_URL };
     });
 }
@@ -41,9 +39,7 @@ function convertScheduleToJson(schedule)
   return htmlToJson.parse(schedule, ['tr[id*="ScheduleGrid"] td', function($schedule) {
     return $schedule.text().trim();
   }])
-  .then(function(items) {
-    return getGamesFromItems(items).map(g => formatGame(g));
-  });
+  .then(items => getGamesFromItems(items).map(g => formatGame(g)));
 }
 
 function getGamesFromItems(items) {
