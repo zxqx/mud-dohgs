@@ -42,7 +42,6 @@
 
 .postponed {
   opacity: 0.5;
-  composes: game;
 }
 
 .schedule-date {

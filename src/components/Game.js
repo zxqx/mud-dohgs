@@ -18,21 +18,23 @@ export default class Game extends Component {
 
     const threeDaysAgo = moment().subtract(3, 'days').startOf('day');
     const noResults = awayScore === null && homeScore === null;
-    const gameStyle = noResults && game.date < threeDaysAgo ? 'postponed' : 'game';
+    const status = noResults && game.date < threeDaysAgo ? 'postponed' : null;
 
     return (
-      <li styleName={gameStyle}>
-        <span styleName='schedule-date'>
-          <span styleName='schedule-month'>{game.date.format('MMM')}</span>
-          <span styleName='schedule-day'>{game.date.format('D')}</span>
-        </span>
+      <li className={styles.game}>
+        <div styleName={status}>
+          <span styleName='schedule-date'>
+            <span styleName='schedule-month'>{game.date.format('MMM')}</span>
+            <span styleName='schedule-day'>{game.date.format('D')}</span>
+          </span>
 
-        <span>
-          <span styleName='schedule-time'>@ {game.time}</span>
-          <span styleName={awayTeamStyle}>{game.awayTeam} {game.awayScore}</span>
-          <span styleName={homeTeamStyle}> @ {game.homeTeam} {game.homeScore}</span>
-          <span styleName='schedule-location'>{game.location}</span>
-        </span>
+          <span>
+            <span styleName='schedule-time'>@ {game.time}</span>
+            <span styleName={awayTeamStyle}>{game.awayTeam} {game.awayScore}</span>
+            <span styleName={homeTeamStyle}> @ {game.homeTeam} {game.homeScore}</span>
+            <span styleName='schedule-location'>{game.location}</span>
+          </span>
+        </div>
       </li>
     );
   }
