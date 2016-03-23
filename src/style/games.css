@@ -40,6 +40,11 @@
   border-bottom: 0;
 }
 
+.postponed {
+  opacity: 0.5;
+  composes: game;
+}
+
 .schedule-date {
   margin: 5px 20px 30px 0;
   width: 48px;

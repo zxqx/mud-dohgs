@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
+import moment from 'moment';
 import styles from '../style/games.css';
 
 @CSSModules(styles)
@@ -15,8 +16,12 @@ export default class Game extends Component {
     const awayTeamStyle = awayScore > homeScore ? 'schedule-away-win' : 'schedule-away';
     const homeTeamStyle = homeScore > awayScore ? 'schedule-home-win' : 'schedule-home';
 
+    const threeDaysAgo = moment().subtract(3, 'days').startOf('day');
+    const noResults = awayScore === null && homeScore === null;
+    const gameStyle = noResults && game.date < threeDaysAgo ? 'postponed' : 'game';
+
     return (
-      <li className={styles.game}>
+      <li styleName={gameStyle}>
         <span styleName='schedule-date'>
           <span styleName='schedule-month'>{game.date.format('MMM')}</span>
           <span styleName='schedule-day'>{game.date.format('D')}</span>
