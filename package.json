@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node server/index.js",
+    "start:prod": "cross-env NODE_ENV=production node server/index.js",
     "clean": "rimraf lib dist coverage",
     "lint": "eslint src test",
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --recursive --require ./test/setup.js",
