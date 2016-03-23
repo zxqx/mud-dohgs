@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const historyApiFallback = require('connect-history-api-fallback');
-const scheduleApi = require('./schedule-api');
+const fetchSchedule = require('./schedule');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -24,7 +24,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('/api/schedule', (req, res) => {
-  scheduleApi(res);
+  fetchSchedule().then(schedule => res.send(schedule));
 });
 
 app.get('*', (req, res) => {

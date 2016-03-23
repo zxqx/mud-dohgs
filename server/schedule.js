@@ -5,14 +5,16 @@ const moment = require('moment');
 
 const SCHEDULE_URL = 'http://www.teamsideline.com/Org/StandingsResults.aspx?d=xRIu3qqX6IiJhYMtStQM13QZD5DztI3Tvequts2hASiE1qGPloCO87eZyrOLYZQibhUCMiC0XyY%3d';
 
-module.exports = function scheduleApi(res) {
-  scrapeHtmlFromUrl(SCHEDULE_URL)
+module.exports = fetchSchedule;
+
+function fetchSchedule() {
+  return scrapeHtmlFromUrl(SCHEDULE_URL)
     .then((html) => {
       var schedule = html('#ctl00_OrgContentUnit_ScheduleGrid_ctl00 tbody').html();
       return convertScheduleToJson(schedule);
     })
     .then((scheduleJson) => {
-      res.send({ data: scheduleJson, raw: SCHEDULE_URL });
+      return { data: scheduleJson, raw: SCHEDULE_URL };
     });
 }
 
