@@ -24,14 +24,15 @@
 
 .navbar-team {
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   color: #fff;
 }
 
 .navbar-section {
-  margin-left: 3px;
+  margin-left: 4px;
   display: inline-block;
   font-size: 14px;
+  font-weight: 400;
   color: #fff;
   opacity: 0.8;
 }
