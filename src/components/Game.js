@@ -17,7 +17,7 @@ export default class Game extends Component {
     const homeTeamStyle = homeScore > awayScore ? 'schedule-home-win' : 'schedule-home';
 
     const threeDaysAgo = moment().subtract(3, 'days').startOf('day');
-    const noResults = awayScore === null && homeScore === null;
+    const noResults = awayScore === undefined && homeScore === undefined;
     const status = noResults && game.date < threeDaysAgo ? 'postponed' : null;
 
     return (
