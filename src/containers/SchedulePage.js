@@ -7,7 +7,7 @@ import GameList from '../components/GameList';
 @connect(state => ({
   games: state.games
 }))
-export default class GameListPage extends Component {
+export default class SchedulePage extends Component {
   componentWillMount() {
     this.props.dispatch(getGameList());
   }
@@ -16,11 +16,9 @@ export default class GameListPage extends Component {
     const { games } = this.props;
 
     if (!games.data.length) {
-      return <LoadingIndicator />;
+      return <LoadingIndicator />
     }
 
-    return (
-      <GameList games={games.data} raw={games.raw} />
-    )
+    return <GameList games={games.data} raw={games.raw} />
   }
 }

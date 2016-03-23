@@ -15,7 +15,7 @@ export default class GameList extends Component {
     return (
       <ol styleName='game-list'>
         {games.map((game, index) =>
-          <Game key={index} game={game} raw={raw} />
+          <Game key={index} game={game} />
         )}
       </ol>
     )
