@@ -1,14 +1,10 @@
 .navbar {
+  position: relative;
   margin-bottom: 0;
   background: #202020;
   border: 0;
   border-radius: 0;
-}
-
-@media(min-width: 768px) {
-  .navbar {
-    box-shadow: 0 0 5px rgba(0, 0, 10, 0.5);
-  }
+  box-shadow: 0 0 5px rgba(0, 0, 10, 0.5);
 }
 
 .navbar-brand {

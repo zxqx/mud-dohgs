@@ -7,15 +7,9 @@
   }
 }
 
-.schedule {
-  padding: 0;
-  max-width: 800px;
-  background: #fff;
-}
-
 .game-list {
   margin: 0 auto;
-  padding: 5px 10px;
+  padding: 5px 0 0;
   max-width: 800px;
   list-style: none;
   border: 0;
@@ -25,7 +19,7 @@
 @media (min-width: 768px) {
   .game-list {
     margin-top: 15px;
-    padding: 0 10px;
+    padding-top: 0;
     border: 1px solid #e6e5e3;
     box-shadow: 0 0 5px rgba(0, 0, 10, 0.1);
   }
@@ -34,6 +28,11 @@
 .game {
   padding: 13px 20px;
   border-bottom: 1px solid #e6e5e3;
+}
+
+.game-today {
+  composes: game;
+  background: #f7f4e7;
 }
 
 .game:last-child {

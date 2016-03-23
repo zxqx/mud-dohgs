@@ -13,15 +13,18 @@ export default class Game extends Component {
     const { game, styles } = this.props;
     const { awayScore, homeScore } = game;
 
+    const today = moment().startOf('day');
+    const gameStyle = game.date.startOf('day').diff(today) ? 'game' : 'game-today';
+
     const awayTeamStyle = awayScore > homeScore ? 'schedule-away-win' : 'schedule-away';
     const homeTeamStyle = homeScore > awayScore ? 'schedule-home-win' : 'schedule-home';
 
-    const threeDaysAgo = moment().subtract(3, 'days').startOf('day');
+    const threeDaysAgo = today.subtract(3, 'days').startOf('day');
     const noResults = awayScore === undefined && homeScore === undefined;
     const status = noResults && game.date < threeDaysAgo ? 'postponed' : null;
 
     return (
-      <li className={styles.game}>
+      <li styleName={gameStyle}>
         <div styleName={status}>
           <span styleName='schedule-date'>
             <span styleName='schedule-month'>{game.date.format('MMM')}</span>
