@@ -21,6 +21,12 @@
   border-bottom: 1px solid #e6e5e3;
 }
 
+@media (max-width: 767px) {
+  .game:first-child {
+    padding-top: 8px;
+  }
+}
+
 .game-today {
   composes: game;
   background: #f7f4e7;
@@ -81,6 +87,7 @@
 .schedule-home {
   font-size: 18px;
   font-weight: 400;
+  line-height: 26px;
   display: inline-block;
 
 }
