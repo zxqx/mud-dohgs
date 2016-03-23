@@ -11,9 +11,9 @@ export default class Header extends Component {
 
     return (
       <Navbar className={styles.navbar}>
-        <NavbarBrand className={styles['navbar-brand']}>
-          <span className={styles['navbar-team']}>Mud Dohgs</span>
-          <span className={styles['navbar-section']}>Schedule</span>
+        <NavbarBrand styleName='navbar-brand'>
+          <span styleName='navbar-team'>Mud Dohgs</span>
+          <span styleName='navbar-section'>Schedule</span>
         </NavbarBrand>
       </Navbar>
     );

@@ -13,7 +13,7 @@ export default class GameList extends Component {
     const { games, raw, styles } = this.props;
 
     return (
-      <ol styleName='ol'>
+      <ol styleName='game-list'>
         {games.map((game, index) =>
           <Game key={index} game={game} raw={raw} />
         )}
