@@ -2,7 +2,7 @@
 
 A lightweight API and front end for viewing the Mud Dohgs softball schedule.
 
-[muddohgs.com](http://muddohgs.com/)
+[View schedule](http://muddohgs.com/)
 
 ## Requirements
 
