@@ -1,5 +1,7 @@
 # Softball Schedule
 
+A lightweight API and front end for viewing the Mud Dohgs softball schedule.
+
 ## Requirements
 
 + NodeJS
