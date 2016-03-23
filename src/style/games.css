@@ -71,7 +71,6 @@
   color: #333;
 }
 
-
 @media (min-width: 768px) {
   .schedule-time {
     font-size: 14px;
@@ -90,6 +89,7 @@
   .schedule-away,
   .schedule-home {
     font-size: 20px;
+    line-height: 30px;
   }
 }
 
@@ -114,7 +114,14 @@
 .schedule-location {
   margin-top: 3px;
   margin-bottom: 3px;
-  display: block;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 300;
+  color: #333;
+}
+
+.schedule-team-dugout {
+  display: inline-block;
   font-size: 13px;
   font-weight: 300;
   color: #333;
