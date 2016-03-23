@@ -12,8 +12,7 @@
 }
 
 .navbar-brand {
-  padding: 17px;
-  height: 54px;
+  padding: 16px;
   display: block;
   float: none;
   text-align: center;
@@ -24,6 +23,7 @@
 }
 
 .navbar-team {
+  font-size: 18px;
   font-weight: 300;
   color: #fff;
 }

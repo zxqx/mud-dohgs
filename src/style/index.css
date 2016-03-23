@@ -3,6 +3,7 @@
 @import url('./games.css');
 
 body {
+  margin: 0;
   background: #f8f8f8;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 200;
