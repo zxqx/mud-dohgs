@@ -5,6 +5,12 @@
   border-radius: 0;
 }
 
+@media(min-width: 768px) {
+  .navbar {
+    box-shadow: 0 0 5px rgba(0, 0, 10, 0.5);
+  }
+}
+
 .navbar-brand {
   padding: 17px;
   height: 54px;
