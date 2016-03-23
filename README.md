@@ -1,6 +1,4 @@
-# softball
-
-
+# Softball Schedule
 
 ## Requirements
 
