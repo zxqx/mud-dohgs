@@ -54,15 +54,15 @@ function convertScheduleToJson(schedule)
       // TODO - Figure out a better way to infer the year
       game.date = g[0] + '/' + moment().format('YYYY');
       game.time = g[1];
-      game.awayTeam = g[2].replace(/\s\d+/g, '').trim();
-      game.homeTeam = g[3].replace(/\s\d+/g, '').trim();
+      game.away_team = g[2].replace(/\s\d+/g, '').trim();
+      game.home_team = g[3].replace(/\s\d+/g, '').trim();
 
       var awayScore = g[2].match(/\d+$/);
       var homeScore = g[3].match(/\d+$/);
 
       if (awayScore && !isNaN(awayScore[0])) {
-        game.awayScore = parseInt(awayScore[0]);
-        game.homeScore = parseInt(homeScore[0]);
+        game.away_score = parseInt(awayScore[0]);
+        game.home_score = parseInt(homeScore[0]);
       }
 
       game.location = g[4];
