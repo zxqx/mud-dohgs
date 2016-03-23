@@ -1,0 +1,37 @@
+.navbar {
+  margin-bottom: 0;
+  background: #202020;
+  border: 0;
+  border-radius: 0;
+}
+
+.navbar-brand {
+  padding: 17px;
+  height: 54px;
+  display: block;
+  float: none;
+  text-align: center;
+}
+
+.navbar-header {
+  width: 100%;
+}
+
+.navbar-team {
+  font-weight: 300;
+  color: #fff;
+}
+
+.navbar-section {
+  margin-left: 3px;
+  display: inline-block;
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    box-shadow: 0 0 5px rgba(0, 0, 10px, 0.8);
+  }
+}

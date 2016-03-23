@@ -1,0 +1,15 @@
+@import url('./header.css');
+@import url('./games.css');
+
+.container {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  color: #000;
+}
+
+.loading-indicator {
+  margin: 100px auto;
+  width: 300px;
+  font-size: 30px;
+  text-align: center;
+}
