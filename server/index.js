@@ -7,7 +7,7 @@ const historyApiFallback = require('connect-history-api-fallback');
 const fetchSchedule = require('./schedule');
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 var config = process.env.NODE_ENV === 'production'
   ? config = require('../webpack.config.production')
@@ -22,8 +22,8 @@ var bundler = new WebpackDevServer(compiler, {
   },
   proxy: {
     '*/api/*': {
-      target: 'http://localhost:' + port,
-      secure: false,
+      target: 'http://localhost:8080',
+      secure: false
     }
   },
   historyApiFallback: true
@@ -39,5 +39,5 @@ app.get('*', (req, res) => {
   res.sendFile('index.html', { root: process.env.PWD + '/dist' });
 });
 
-app.listen(port);
-bundler.listen(3000);
+app.listen(8080);
+bundler.listen(port);
