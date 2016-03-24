@@ -3,7 +3,6 @@ import * as types from '../actions/games';
 
 const initialState = {
   data: [],
-  raw: '',
   loading: false,
   failed: false
 };
@@ -34,8 +33,7 @@ export default createReducer(initialState, {
   },
   [types.UPDATE_SCHEDULE_URL](state, action) {
     return {
-      ...state,
-      raw: action.url
+      ...state
     };
   }
 });

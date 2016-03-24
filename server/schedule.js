@@ -1,19 +1,29 @@
+const Firebase = require('firebase');
 const curl = require('curlrequest');
 const cheerio = require('cheerio');
 const htmlToJson = require('html-to-json');
 const moment = require('moment');
 
-const SCHEDULE_URL = 'http://www.teamsideline.com/Org/StandingsResults.aspx?d=xRIu3qqX6IiJhYMtStQM13QZD5DztI3Tvequts2hASiE1qGPloCO87eZyrOLYZQibhUCMiC0XyY%3d';
+const REMOTE_DATA_STORE_ROOT = 'https://mud-dohgs.firebaseio.com';
 const GAME_TABLE_SELECTOR = '#ctl00_OrgContentUnit_ScheduleGrid_ctl00 tbody';
 
 module.exports = fetchSchedule;
 
 function fetchSchedule() {
-  return scrapeHtmlFromUrl(SCHEDULE_URL)
+  return getScheduleUrl()
+    .then(scheduleUrl => scrapeHtmlFromUrl(scheduleUrl))
     .then(html => convertScheduleToJson(html(GAME_TABLE_SELECTOR).html()))
     .then(scheduleJson => {
-      return { data: scheduleJson, raw: SCHEDULE_URL };
+      return { data: scheduleJson };
     });
+}
+
+function getScheduleUrl() {
+  const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/schedule-url`);
+
+  return new Promise((resolve, reject) => {
+    ref.on('value', snapshot => resolve(snapshot.val().url));
+  });
 }
 
 /**

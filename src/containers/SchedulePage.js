@@ -26,7 +26,7 @@ export default class SchedulePage extends Component {
     }
 
     if (games.failed) {
-      return <GamesErrorMessage url={games.raw} />;
+      return <GamesErrorMessage />;
     }
 
     return <GameList games={games.data} />;
