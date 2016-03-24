@@ -3,7 +3,6 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const historyApiFallback = require('connect-history-api-fallback');
 const fetchSchedule = require('./schedule');
 
 const app = express();
