@@ -87,9 +87,7 @@
 .schedule-home {
   font-size: 18px;
   font-weight: 400;
-  line-height: 26px;
   display: inline-block;
-
 }
 
 @media(min-width: 768px) {
