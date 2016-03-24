@@ -92,4 +92,5 @@ body {
 
 .button:hover {
   cursor: pointer;
+  background: #333;
 }
