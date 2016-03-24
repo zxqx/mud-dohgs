@@ -7,7 +7,8 @@ import NotFoundPage from '../containers/NotFoundPage';
 
 export default (
   <Route component={App}>
-    <Route path='/' component={CoachPage} />
+    <Route path='/' component={SchedulePage} />
+    <Route path='coach' component={CoachPage} />
     <Route path='*' component={NotFoundPage} />
   </Route>
 );

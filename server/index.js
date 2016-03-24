@@ -2,11 +2,12 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
 const historyApiFallback = require('connect-history-api-fallback');
 const fetchSchedule = require('./schedule');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 var config = process.env.NODE_ENV === 'production'
   ? config = require('../webpack.config.production')
@@ -14,12 +15,19 @@ var config = process.env.NODE_ENV === 'production'
 
 const compiler = webpack(config);
 
-app.use(require('webpack-dev-middleware')(compiler, {
+var bundler = new WebpackDevServer(compiler, {
   publicPath: config.output.publicPath,
   stats: {
     colors: true,
-  }
-}));
+  },
+  proxy: {
+    '*/api/schedule': {
+      target: 'http://localhost:' + port,
+      secure: false,
+    }
+  },
+  historyApiFallback: true
+});
 
 app.use(require('webpack-hot-middleware')(compiler));
 
@@ -32,3 +40,4 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port);
+bundler.listen(3000);
