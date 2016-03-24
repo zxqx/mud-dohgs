@@ -1,9 +1,9 @@
 import { fetchGameList } from '../middleware/api';
 
-export const UPDATE_GAME_LIST = 'UPDATE_GAME_LIST';
 export const FETCH_GAME_LIST_REQUEST = 'FETCH_GAME_LIST_REQUEST';
 export const FETCH_GAME_LIST_REQUEST_SUCCESS = 'FETCH_GAME_LIST_REQUEST_SUCCESS';
 export const FETCH_GAME_LIST_REQUEST_FAILURE = 'FETCH_GAME_LIST_REQUEST_FAILURE';
+export const UPDATE_GAME_LIST = 'UPDATE_GAME_LIST';
 
 export function fetchGameListRequest() {
   return {
