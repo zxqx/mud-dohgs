@@ -13,9 +13,7 @@ function fetchSchedule() {
   return getScheduleUrl()
     .then(scheduleUrl => scrapeHtmlFromUrl(scheduleUrl))
     .then(html => convertScheduleToJson(html(GAME_TABLE_SELECTOR).html()))
-    .then(scheduleJson => {
-      return { data: scheduleJson };
-    });
+    .then(scheduleJson => ({ data: scheduleJson }));
 }
 
 function getScheduleUrl() {
