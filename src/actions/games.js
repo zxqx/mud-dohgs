@@ -10,7 +10,7 @@ export function updateGameList(payload) {
 }
 
 export function getGameList() {
-  return async function(dispatch) {
+  return async dispatch => {
     const res = await fetchGameList();
     dispatch(updateGameList(res));
   };

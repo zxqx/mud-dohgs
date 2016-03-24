@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import CSSModules from 'react-css-modules';
-import styles from '../style/header.css';
+import cssModules from 'react-css-modules';
+import headerStyles from '../style/header.css';
 
-@CSSModules(styles)
+@cssModules(headerStyles)
 export default class Header extends Component {
   render() {
     const { styles } = this.props;

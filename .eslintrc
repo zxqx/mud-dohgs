@@ -7,9 +7,12 @@
   },
   "rules": {
     "react/jsx-no-bind": 0,
+    "react/prop-types": [0, { ignore: ["styles"] }],
     "no-var": 0,
     "vars-on-top": 0,
-    "comma-dangle": [2, "never"]
+    "comma-dangle": [2, "never"],
+    "jsx-quotes": [2, "prefer-single"],
+    "no-param-reassign": [2, {"props": false}]
   },
   "plugins": [
     "react"

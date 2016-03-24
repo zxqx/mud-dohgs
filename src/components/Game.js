@@ -1,16 +1,16 @@
 import React, { Component, PropTypes } from 'react';
-import CSSModules from 'react-css-modules';
+import cssModules from 'react-css-modules';
 import moment from 'moment';
-import styles from '../style/games.css';
+import gamesStyles from '../style/games.css';
 
-@CSSModules(styles)
+@cssModules(gamesStyles)
 export default class Game extends Component {
   static propTypes = {
     game: PropTypes.object.isRequired
   };
 
   render() {
-    const { game, styles } = this.props;
+    const { game } = this.props;
     const { awayScore, homeScore } = game;
 
     const today = moment().startOf('day');

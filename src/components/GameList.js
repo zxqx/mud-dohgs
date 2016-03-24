@@ -1,16 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import Game from './Game';
-import CSSModules from 'react-css-modules';
-import styles from '../style/games.css';
+import cssModules from 'react-css-modules';
+import gamesStyles from '../style/games.css';
 
-@CSSModules(styles)
+@cssModules(gamesStyles)
 export default class GameList extends Component {
   static propTypes = {
     games: PropTypes.array.isRequired
   };
 
   render() {
-    const { games, raw, styles } = this.props;
+    const { games } = this.props;
 
     return (
       <ol styleName='game-list'>
@@ -18,6 +18,6 @@ export default class GameList extends Component {
           <Game key={index} game={game} />
         )}
       </ol>
-    )
+    );
   }
 }
