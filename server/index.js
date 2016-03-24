@@ -21,7 +21,7 @@ var bundler = new WebpackDevServer(compiler, {
     colors: true,
   },
   proxy: {
-    '*/api/schedule': {
+    '*/api/*': {
       target: 'http://localhost:' + port,
       secure: false,
     }
