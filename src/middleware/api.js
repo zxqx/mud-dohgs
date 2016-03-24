@@ -21,6 +21,5 @@ export async function fetchGameList() {
 
 export async function setScheduleUrl(url) {
   const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/schedule-url`);
-  console.log(url);
   ref.child('url').set(url);
 }
