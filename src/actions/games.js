@@ -4,7 +4,9 @@ export const FETCH_GAME_LIST_REQUEST = 'FETCH_GAME_LIST_REQUEST';
 export const FETCH_GAME_LIST_REQUEST_SUCCESS = 'FETCH_GAME_LIST_REQUEST_SUCCESS';
 export const FETCH_GAME_LIST_REQUEST_FAILURE = 'FETCH_GAME_LIST_REQUEST_FAILURE';
 export const UPDATE_GAME_LIST = 'UPDATE_GAME_LIST';
-export const UPDATE_SCHEDULE_URL = 'UPDATE_SCHEDULE_URL';
+export const UPDATE_SCHEDULE_URL_REQUEST = 'UPDATE_SCHEDULE_URL_REQUEST';
+export const UPDATE_SCHEDULE_URL_REQUEST_SUCCESS = 'UPDATE_SCHEDULE_URL_REQUEST_SUCCESS';
+export const UPDATE_SCHEDULE_URL_REQUEST_FAILURE = 'UPDATE_SCHEDULE_URL_REQUEST_FAILURE';
 
 export function fetchGameListRequest() {
   return {
@@ -45,12 +47,33 @@ export function getGameList() {
   };
 }
 
+export function updateScheduleUrlRequest() {
+  return {
+    type: UPDATE_SCHEDULE_URL_REQUEST
+  };
+}
+
+export function updateScheduleUrlRequestSuccess(url) {
+  return {
+    type: UPDATE_SCHEDULE_URL_REQUEST_SUCCESS,
+    url
+  };
+}
+
+export function updateScheduleUrlRequestFailure() {
+  return {
+    type: UPDATE_SCHEDULE_URL_REQUEST_FAILURE
+  };
+}
+
 export function updateScheduleUrl(url, password) {
   return async dispatch => {
-    const payload = await setScheduleUrl(url, password);
-    return {
-      type: UPDATE_SCHEDULE_URL,
-      url
-    };
+    try {
+      dispatch(updateScheduleUrlRequest());
+      const payload = await setScheduleUrl(url, password);
+      dispatch(updateScheduleUrlRequestSuccess(url));
+    } catch (e) {
+      dispatch(updateScheduleUrlRequestFailure());
+    }
   };
 }

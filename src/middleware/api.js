@@ -22,15 +22,18 @@ export async function fetchGameList() {
 export async function setScheduleUrl(url, password) {
   const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/schedule-url`);
 
-  ref.authWithPassword({
-    email    : 'SbJoZgk5Bn@tN9kZiIzUJ.com',
-    password : password
-  }, (error, authData) => {
-    if (error) {
-      console.log('Login Failed!', error);
-    }
-    else {
-      ref.child('url').set(url);
-    }
+  return new Promise((resolve, reject) => {
+    ref.authWithPassword({
+      email: 'SbJoZgk5Bn@tN9kZiIzUJ.com',
+      password: password
+    }, (error, authData) => {
+      if (error) {
+        reject();
+      }
+      else {
+        ref.child('url').set(url);
+        resolve(url);
+      }
+    });
   });
 }

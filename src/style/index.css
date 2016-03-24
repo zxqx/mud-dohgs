@@ -69,7 +69,7 @@ body {
 }
 
 .button {
-  margin-top: 10px;
+  margin: 10px 0;
   padding: 10px 30px;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
@@ -77,6 +77,16 @@ body {
   color: #fff;
   background: #202020;
   border: 0;
+}
+
+.button-loading {
+  composes: button;
+  opacity: 0.2;
+}
+
+.button-failed {
+  composes: button;
+  background: #d9534f;
 }
 
 .button:hover {

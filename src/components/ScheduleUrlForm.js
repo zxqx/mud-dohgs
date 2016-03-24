@@ -19,8 +19,22 @@ export default class ScheduleUrlForm extends Component {
     this.setState(nextState);
   }
 
+  getButtonStyle() {
+    const { loading, failed } = this.props;
+
+    if (loading) {
+      return 'button-loading';
+    }
+
+    if (failed) {
+      return 'button-failed';
+    }
+
+    return 'button';
+  }
+
   render() {
-    const { onSubmit } = this.props;
+    const { onSubmit, loading, failed, saved } = this.props;
 
     return (
       <form styleName='form' onSubmit={(e) => {
@@ -38,7 +52,9 @@ export default class ScheduleUrlForm extends Component {
           <input styleName='form-field' type='password' name='password' value={this.state.password} onChange={this.handleChange.bind(this)} />
         </div>
 
-        <input styleName='button' type='submit' value='Update' />
+        <input styleName={this.getButtonStyle()} type='submit' value='Update' />
+        {failed ? <div>The price is wrong, bitch.</div> : null}
+        {saved ? <div>Saved.</div> : null}
       </form>
     );
   }

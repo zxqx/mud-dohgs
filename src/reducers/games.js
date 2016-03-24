@@ -4,7 +4,9 @@ import * as types from '../actions/games';
 const initialState = {
   data: [],
   loading: false,
-  failed: false
+  failed: false,
+  scheduleUrl: null,
+  saved: false
 };
 
 export default createReducer(initialState, {
@@ -31,9 +33,29 @@ export default createReducer(initialState, {
   [types.UPDATE_GAME_LIST](state, action) {
     return action.payload;
   },
-  [types.UPDATE_SCHEDULE_URL](state, action) {
+  [types.UPDATE_SCHEDULE_URL_REQUEST](state) {
     return {
-      ...state
+      ...state,
+      loading: true,
+      failed: false,
+      saved: false
+    };
+  },
+  [types.UPDATE_SCHEDULE_URL_REQUEST_SUCCESS](state, action) {
+    return {
+      ...state,
+      scheduleUrl: action.url,
+      loading: false,
+      failed: false,
+      saved: true
+    };
+  },
+  [types.UPDATE_SCHEDULE_URL_REQUEST_FAILURE](state) {
+    return {
+      ...state,
+      loading: false,
+      failed: true,
+      saved: false
     };
   }
 });
