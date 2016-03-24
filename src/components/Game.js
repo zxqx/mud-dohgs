@@ -14,8 +14,8 @@ export default class Game extends Component {
     const { awayScore, homeScore } = game;
 
     const today = moment().startOf('day');
-    const gameStyle = game.date.startOf('day').diff(today) ? 'game' : 'game-today';
 
+    const gameStyle = game.date.startOf('day').diff(today) ? 'game' : 'game-today';
     const awayTeamStyle = awayScore > homeScore ? 'schedule-away-win' : 'schedule-away';
     const homeTeamStyle = homeScore > awayScore ? 'schedule-home-win' : 'schedule-home';
 
