@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import cssModules from 'react-css-modules';
 import baseStyles from '../style/index.css';
 

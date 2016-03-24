@@ -9,25 +9,25 @@ const initialState = {
 };
 
 export default createReducer(initialState, {
-  [types.FETCH_GAME_LIST_REQUEST](state, action) {
+  [types.FETCH_GAME_LIST_REQUEST](state) {
     return {
       ...state,
       loading: true,
       failed: false
-    }
+    };
   },
-  [types.FETCH_GAME_LIST_REQUEST_SUCCESS](state, action) {
+  [types.FETCH_GAME_LIST_REQUEST_SUCCESS](state) {
     return {
       ...state,
       loading: false
-    }
+    };
   },
-  [types.FETCH_GAME_LIST_REQUEST_FAILURE](state, action) {
+  [types.FETCH_GAME_LIST_REQUEST_FAILURE](state) {
     return {
       ...state,
       loading: false,
       failed: true
-    }
+    };
   },
   [types.UPDATE_GAME_LIST](state, action) {
     return action.payload;

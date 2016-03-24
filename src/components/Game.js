@@ -9,6 +9,36 @@ export default class Game extends Component {
     game: PropTypes.object.isRequired
   };
 
+  getGameStyle() {
+    const { date } = this.props.game;
+    const today = moment().startOf('day');
+
+    return date.startOf('day').diff(today) ? 'game' : 'game-today';
+  }
+
+  getAwayTeamStyle() {
+    const { awayScore, homeScore } = this.props.game;
+    return awayScore > homeScore ? 'schedule-away-win' : 'schedule-away';
+  }
+
+  getHomeTeamStyle() {
+    const { awayScore, homeScore } = this.props.game;
+    return homeScore > awayScore ? 'schedule-home-win' : 'schedule-home';
+  }
+
+  getGameStatusStyle() {
+    const { awayScore, homeScore, date } = this.props.game;
+    const today = moment().startOf('day');
+    const threeDaysAgo = today.subtract(3, 'days').startOf('day');
+    const noResults = awayScore === undefined && homeScore === undefined;
+
+    return noResults && date < threeDaysAgo ? 'postponed' : null;
+  }
+
+  getTeamDugout() {
+    return this.props.game.homeTeam === 'Mud Dohgs' ? 'Home' : 'Away';
+  }
+
   render() {
     const { game } = this.props;
 
@@ -39,35 +69,5 @@ export default class Game extends Component {
         </div>
       </li>
     );
-  }
-
-  getGameStyle() {
-    const { date } = this.props.game;
-    const today = moment().startOf('day');
-
-    return date.startOf('day').diff(today) ? 'game' : 'game-today';
-  }
-
-  getAwayTeamStyle() {
-    const { awayScore, homeScore } = this.props.game;
-    return awayScore > homeScore ? 'schedule-away-win' : 'schedule-away';
-  }
-
-  getHomeTeamStyle() {
-    const { awayScore, homeScore } = this.props.game;
-    return homeScore > awayScore ? 'schedule-home-win' : 'schedule-home';
-  }
-
-  getGameStatusStyle() {
-    const { awayScore, homeScore, date } = this.props.game;
-    const today = moment().startOf('day');
-    const threeDaysAgo = today.subtract(3, 'days').startOf('day');
-    const noResults = awayScore === undefined && homeScore === undefined;
-
-    return noResults && date < threeDaysAgo ? 'postponed' : null;
-  }
-
-  getTeamDugout() {
-    return this.props.game.homeTeam === 'Mud Dohgs' ? 'Home' : 'Away';
   }
 }

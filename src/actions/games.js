@@ -38,8 +38,7 @@ export function getGameList() {
       const res = await fetchGameList();
       dispatch(fetchGameListRequestSuccess());
       dispatch(updateGameList(res));
-    }
-    catch(e) {
+    } catch (e) {
       dispatch(fetchGameListRequestFailure());
     }
   };
