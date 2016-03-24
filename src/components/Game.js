@@ -11,22 +11,17 @@ export default class Game extends Component {
 
   render() {
     const { game } = this.props;
-    const { awayScore, homeScore } = game;
 
-    const today = moment().startOf('day');
+    const gameStyle = this.getGameStyle();
+    const awayTeamStyle = this.getAwayTeamStyle();
+    const homeTeamStyle = this.getHomeTeamStyle();
 
-    const gameStyle = game.date.startOf('day').diff(today) ? 'game' : 'game-today';
-    const awayTeamStyle = awayScore > homeScore ? 'schedule-away-win' : 'schedule-away';
-    const homeTeamStyle = homeScore > awayScore ? 'schedule-home-win' : 'schedule-home';
-
-    const threeDaysAgo = today.subtract(3, 'days').startOf('day');
-    const noResults = awayScore === undefined && homeScore === undefined;
-    const gameStatus = noResults && game.date < threeDaysAgo ? 'postponed' : null;
-    const teamDugout = game.homeTeam === 'Mud Dohgs' ? 'Home' : 'Away';
+    const gameStatusStyle = this.getGameStatusStyle();
+    const teamDugout = this.getTeamDugout();
 
     return (
       <li styleName={gameStyle}>
-        <div styleName={gameStatus}>
+        <div styleName={gameStatusStyle}>
           <span styleName='schedule-date'>
             <span styleName='schedule-month'>{game.date.format('MMM')}</span>
             <span styleName='schedule-day'>{game.date.format('D')}</span>
@@ -38,13 +33,41 @@ export default class Game extends Component {
             <span styleName={homeTeamStyle}> @ {game.homeTeam} {game.homeScore}</span>
             <div>
               <span styleName='schedule-location'>{game.location} -&nbsp;</span>
-              <span styleName='schedule-team-dugout'>
-                {teamDugout}
-              </span>
+              <span styleName='schedule-team-dugout'>{teamDugout}</span>
             </div>
           </span>
         </div>
       </li>
     );
+  }
+
+  getGameStyle() {
+    const { date } = this.props.game;
+    const today = moment().startOf('day');
+
+    return date.startOf('day').diff(today) ? 'game' : 'game-today';
+  }
+
+  getAwayTeamStyle() {
+    const { awayScore, homeScore } = this.props.game;
+    return awayScore > homeScore ? 'schedule-away-win' : 'schedule-away';
+  }
+
+  getHomeTeamStyle() {
+    const { awayScore, homeScore } = this.props.game;
+    return homeScore > awayScore ? 'schedule-home-win' : 'schedule-home';
+  }
+
+  getGameStatusStyle() {
+    const { awayScore, homeScore, date } = this.props.game;
+    const today = moment().startOf('day');
+    const threeDaysAgo = today.subtract(3, 'days').startOf('day');
+    const noResults = awayScore === undefined && homeScore === undefined;
+
+    return noResults && date < threeDaysAgo ? 'postponed' : null;
+  }
+
+  getTeamDugout() {
+    return this.props.game.homeTeam === 'Mud Dohgs' ? 'Home' : 'Away';
   }
 }
