@@ -45,9 +45,9 @@ export function getGameList() {
   };
 }
 
-export function updateScheduleUrl(url) {
+export function updateScheduleUrl(url, password) {
   return async dispatch => {
-    const payload = await setScheduleUrl(url);
+    const payload = await setScheduleUrl(url, password);
     return {
       type: UPDATE_SCHEDULE_URL,
       url

@@ -13,7 +13,7 @@ export default class CoachPage extends Component {
     const { dispatch } = this.props;
 
     return (
-      <ScheduleUrlForm onSubmit={(url) => dispatch(updateScheduleUrl(url))} />
+      <ScheduleUrlForm onSubmit={(url, password) => dispatch(updateScheduleUrl(url, password))} />
     )
   }
 }
