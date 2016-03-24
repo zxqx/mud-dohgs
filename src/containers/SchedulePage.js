@@ -21,12 +21,12 @@ export default class SchedulePage extends Component {
   render() {
     const { games } = this.props;
 
-    if (games.failed) {
-      return <GamesErrorMessage url={games.raw} />;
+    if (games.loading) {
+      return <LoadingIndicator />;
     }
 
-    if (!games.data.length) {
-      return <LoadingIndicator />;
+    if (games.failed) {
+      return <GamesErrorMessage url={games.raw} />;
     }
 
     return <GameList games={games.data} />;
