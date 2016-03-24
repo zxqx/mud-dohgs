@@ -31,5 +31,11 @@ export default createReducer(initialState, {
   },
   [types.UPDATE_GAME_LIST](state, action) {
     return action.payload;
+  },
+  [types.UPDATE_SCHEDULE_URL](state, action) {
+    return {
+      ...state,
+      raw: action.url
+    };
   }
 });

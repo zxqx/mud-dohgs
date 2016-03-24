@@ -19,14 +19,8 @@ export async function fetchGameList() {
   return data;
 }
 
-export async function updateScheduleUrl(url) {
+export async function setScheduleUrl(url) {
   const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/schedule-url`);
+  console.log(url);
   ref.child('url').set(url);
-}
-
-export async function getScheduleUrl() {
-  const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/schedule-url`);
-
-  ref.on('value', snapshot => console.log(snapshot.val()),
-    error => console.log(error));
 }
