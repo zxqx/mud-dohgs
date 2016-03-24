@@ -19,7 +19,8 @@ body {
   }
 }
 
-.loading-indicator {
+.loading-indicator,
+.error-message {
   margin: 100px auto;
   width: 300px;
   font-size: 30px;

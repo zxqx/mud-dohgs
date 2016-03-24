@@ -5,7 +5,7 @@ export async function fetchGameList() {
   const res = await fetch('/api/schedule');
 
   if (!res.ok) {
-    Promise.reject(res);
+    return Promise.reject();
   }
 
   let data = await res.json();

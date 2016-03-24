@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { getGameList } from '../actions/games';
 import LoadingIndicator from '../components/LoadingIndicator';
+import GamesErrorMessage from '../components/GamesErrorMessage';
 import GameList from '../components/GameList';
 
 @connect(state => ({
@@ -19,6 +20,10 @@ export default class SchedulePage extends Component {
 
   render() {
     const { games } = this.props;
+
+    if (games.failed) {
+      return <GamesErrorMessage url={games.raw} />;
+    }
 
     if (!games.data.length) {
       return <LoadingIndicator />;
