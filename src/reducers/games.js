@@ -1,13 +1,35 @@
 import { createReducer } from 'redux-create-reducer';
-import { UPDATE_GAME_LIST } from '../actions/games';
+import * as types from '../actions/games';
 
 const initialState = {
   data: [],
-  raw: ''
+  raw: '',
+  loading: false,
+  failed: false
 };
 
 export default createReducer(initialState, {
-  [UPDATE_GAME_LIST](state, action) {
+  [types.FETCH_GAME_LIST_REQUEST](state, action) {
+    return {
+      ...state,
+      loading: true,
+      failed: false
+    }
+  },
+  [types.FETCH_GAME_LIST_REQUEST_SUCCESS](state, action) {
+    return {
+      ...state,
+      loading: false
+    }
+  },
+  [types.FETCH_GAME_LIST_REQUEST_FAILURE](state, action) {
+    return {
+      ...state,
+      loading: false,
+      failed: true
+    }
+  },
+  [types.UPDATE_GAME_LIST](state, action) {
     return action.payload;
   }
 });

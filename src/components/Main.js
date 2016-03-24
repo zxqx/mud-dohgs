@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import Header from '../components/Header';
 import cssModules from 'react-css-modules';
+import Header from '../components/Header';
 import baseStyles from '../style/index.css';
 
 @cssModules(baseStyles)
