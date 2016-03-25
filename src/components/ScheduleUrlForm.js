@@ -34,12 +34,19 @@ export default class ScheduleUrlForm extends Component {
   }
 
   render() {
-    const { onSubmit, loading, failed, saved } = this.props;
+    const { onSubmit, onFailure, loading, failed, saved } = this.props;
+    const { url, password } = this.state;
 
     return (
       <form styleName='form' onSubmit={(e) => {
         e.preventDefault();
-        onSubmit(this.state.url, this.state.password);
+
+        if (!url.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/)) {
+          onFailure();
+          return;
+        }
+
+        onSubmit(url, password);
       }}>
         <h2 styleName='h2'>Coach Brim</h2>
         <div>

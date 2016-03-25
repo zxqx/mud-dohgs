@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { updateScheduleUrl } from '../actions/games';
+import { updateScheduleUrl, updateScheduleUrlRequestFailure } from '../actions/games';
 import ScheduleUrlForm from '../components/ScheduleUrlForm';
 
 @connect(state => ({
@@ -20,7 +20,10 @@ export default class CoachPage extends Component {
     const { dispatch, loading, failed, saved } = this.props;
 
     return (
-      <ScheduleUrlForm onSubmit={(url, password) => dispatch(updateScheduleUrl(url, password))} loading={loading} failed={failed} saved={saved} />
+      <ScheduleUrlForm
+        onSubmit={(url, password) => dispatch(updateScheduleUrl(url, password))}
+        onFailure={() => dispatch(updateScheduleUrlRequestFailure())}
+        loading={loading} failed={failed} saved={saved} />
     )
   }
 }
