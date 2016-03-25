@@ -13,6 +13,16 @@ body {
 .container {
 }
 
+@media(min-width: 768px) {
+  .container {
+    padding-bottom: 30px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
 .h2 {
   margin: 0 0 20px;
   padding: 10px 0;
@@ -20,12 +30,6 @@ body {
   background: #b49925;
   border-radius: 2px;
   font-weight: 300;
-}
-
-@media(min-width: 768px) {
-  .container {
-    padding-bottom: 30px;
-  }
 }
 
 .loading-indicator,
@@ -57,7 +61,7 @@ body {
 
 .form-label {
   margin-bottom: 5px;
-  font-size: 24px;
+  font-size: 22px;
   display: block;
 }
 
@@ -95,3 +99,8 @@ body {
   cursor: pointer;
   background: #333;
 }
+
+.button-failed:hover {
+  background: #e86864;
+}
+

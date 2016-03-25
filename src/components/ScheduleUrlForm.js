@@ -44,12 +44,12 @@ export default class ScheduleUrlForm extends Component {
         <h2 styleName='h2'>Coach Brim</h2>
         <div>
           <label styleName='form-label' htmlFor='url'>Schedule URL</label>
-          <input styleName='form-field' type='text' name='url' value={this.state.url} onChange={this.handleChange.bind(this)} />
+          <input styleName='form-field' type='text' id='url' name='url' value={this.state.url} onChange={this.handleChange.bind(this)} />
         </div>
 
         <div>
-          <label styleName='form-label' htmlFor='url'>Password</label>
-          <input styleName='form-field' type='password' name='password' value={this.state.password} onChange={this.handleChange.bind(this)} />
+          <label styleName='form-label' htmlFor='password'>Password</label>
+          <input styleName='form-field' type='password' id='password' name='password' value={this.state.password} onChange={this.handleChange.bind(this)} />
         </div>
 
         <input styleName={this.getButtonStyle()} type='submit' value='Update' />
