@@ -33,6 +33,12 @@ export default class ScheduleUrlForm extends Component {
     return 'button';
   }
 
+  validateForm() {
+    const { url, password } = this.state;
+
+    return url && password && url.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/);
+  }
+
   render() {
     const { onSubmit, onFailure, loading, failed, saved } = this.props;
     const { url, password } = this.state;
@@ -41,9 +47,8 @@ export default class ScheduleUrlForm extends Component {
       <form styleName='form' onSubmit={(e) => {
         e.preventDefault();
 
-        if (!url.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/)) {
-          onFailure();
-          return;
+        if (!this.validateForm()) {
+          return onFailure();
         }
 
         onSubmit(url, password);
