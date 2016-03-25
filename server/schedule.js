@@ -53,8 +53,8 @@ function convertScheduleToJson(schedule)
 function getGamesFromItems(items) {
   var games = [];
 
-  var timesToSplice = items.length / 5;
-  for (var i=0; i < timesToSplice; i++) {
+  var rowLength = items.length / 5;
+  for (var i=0; i < rowLength; i++) {
     games.push(items.splice(0, 5));
   }
 
@@ -66,15 +66,19 @@ function formatGame(g) {
 
   game.date = g[0] + '/' + moment().format('YYYY');
   game.time = g[1];
-  game.away_team = g[2].replace(/\s\d+/g, '').trim();
-  game.home_team = g[3].replace(/\s\d+/g, '').trim();
 
-  var awayScore = g[2].match(/\d+$/);
-  var homeScore = g[3].match(/\d+$/);
+  game.away_team = g[2].replace(/\sW$|L$|\d+/g, '').trim();
+  game.home_team = g[3].replace(/\sW$|L$|\d+/g, '').trim();
 
-  if (awayScore && !isNaN(awayScore[0])) {
-    game.away_score = parseInt(awayScore[0]);
-    game.home_score = parseInt(homeScore[0]);
+  var awayScore = g[2].match(/W$|L$|\d+$/);
+  var homeScore = g[3].match(/W$|L$|\d+$/);
+
+  if (awayScore) {
+    game.away_score = parseInt(awayScore[0]) ? parseInt(awayScore[0]) : awayScore[0];
+  }
+
+  if (homeScore) {
+    game.home_score = parseInt(homeScore[0]) ? parseInt(homeScore[0]) : homeScore[0];
   }
 
   game.location = g[4];
