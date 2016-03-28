@@ -70,7 +70,7 @@ export function updateScheduleUrl(url, password) {
   return async dispatch => {
     try {
       dispatch(updateScheduleUrlRequest());
-      const payload = await setScheduleUrl(url, password);
+      await setScheduleUrl(url, password);
       dispatch(updateScheduleUrlRequestSuccess(url));
     } catch (e) {
       dispatch(updateScheduleUrlRequestFailure());
