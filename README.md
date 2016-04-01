@@ -45,7 +45,7 @@ $ npm test
 Watch and re-run tests:
 
 ```sh
-$ npm test:watch
+$ npm run test:watch
 ```
 
 ## Release
