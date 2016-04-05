@@ -29,10 +29,10 @@ export default class Game extends Component {
   getGameStatusStyle() {
     const { awayScore, homeScore, date } = this.props.game;
     const today = moment().startOf('day');
-    const threeDaysAgo = today.subtract(3, 'days').startOf('day');
+    const fiveDaysAgo = today.subtract(5, 'days').startOf('day');
     const noResults = awayScore === undefined && homeScore === undefined;
 
-    return noResults && date < threeDaysAgo ? 'postponed' : null;
+    return noResults && date < fiveDaysAgo ? 'postponed' : null;
   }
 
   getTeamDugout() {
