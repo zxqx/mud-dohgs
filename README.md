@@ -16,7 +16,6 @@ A lightweight API and front end for viewing the Mud Dohgs softball schedule. Thi
 * [react-css-modules](https://github.com/gajus/react-css-modules) - Scoped CSS modules
 * [babel](https://babeljs.io/) - ES6/JSX compiler
 * [webpack](https://webpack.github.io/) - Module bundler
-* [mocha](https://mochajs.org/) - Testing
 
 ## Setup
 
@@ -33,20 +32,6 @@ $ npm start
 ```
 
 To run the server in release mode, set the environment variable `NODE_ENV=production`
-
-## Test
-
-Run tests:
-
-```sh
-$ npm test
-```
-
-Watch and re-run tests:
-
-```sh
-$ npm run test:watch
-```
 
 ## Release
 
