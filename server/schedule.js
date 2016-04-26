@@ -40,8 +40,8 @@ function getScheduleUrl() {
  */
 function scrapeHtmlFromUrl(url)
 {
-  return new Promise(function(resolve, reject) {
-    curl.request({ url: url }, function(err, res) {
+  return new Promise((resolve, reject) => {
+    curl.request({ url: url }, (err, res) => {
       if (err) {
         reject(err);
       }
@@ -59,7 +59,7 @@ function scrapeHtmlFromUrl(url)
  */
 function convertScheduleToJson(schedule)
 {
-  return htmlToJson.parse(schedule, ['tr[id*="ScheduleGrid"] td', function($schedule) {
+  return htmlToJson.parse(schedule, ['tr[id*="ScheduleGrid"] td', $schedule => {
     return $schedule.text().trim();
   }])
   .then(items => getGamesFromItems(items).map(g => formatGame(g)));
