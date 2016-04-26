@@ -9,6 +9,12 @@ const GAME_TABLE_SELECTOR = '#ctl00_OrgContentUnit_ScheduleGrid_ctl00 tbody';
 
 module.exports = fetchSchedule;
 
+/**
+ * Get the current schedule URL
+ * Hit the page and scrape HTML
+ * Convert the HTML to JSON structure
+ * @return {Promise}
+ */
 function fetchSchedule() {
   return getScheduleUrl()
     .then(scheduleUrl => scrapeHtmlFromUrl(scheduleUrl))
@@ -16,6 +22,9 @@ function fetchSchedule() {
     .then(scheduleJson => ({ data: scheduleJson }));
 }
 
+/**
+ * Retrieve the current schedule URL from firebase
+ */
 function getScheduleUrl() {
   const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/schedule-url`);
 
@@ -25,6 +34,7 @@ function getScheduleUrl() {
 }
 
 /**
+ * Scrape the HTML contents of the schedule page
  * @param {string} url
  * @return {Promise<object>}
  */
@@ -42,6 +52,11 @@ function scrapeHtmlFromUrl(url)
   });
 }
 
+/**
+ * Convert the HTML string to a JSON structure
+ * @param {object} schedule
+ * @return {Promise<array>}
+ */
 function convertScheduleToJson(schedule)
 {
   return htmlToJson.parse(schedule, ['tr[id*="ScheduleGrid"] td', function($schedule) {
@@ -50,6 +65,11 @@ function convertScheduleToJson(schedule)
   .then(items => getGamesFromItems(items).map(g => formatGame(g)));
 }
 
+/**
+ * Split out raw schedule array data into games
+ * @param {array} items
+ * @return {array}
+ */
 function getGamesFromItems(items) {
   var games = [];
 
@@ -61,6 +81,11 @@ function getGamesFromItems(items) {
   return games;
 }
 
+/**
+ * Do some basic formatting and add extra helpful props
+ * @param {object} g
+ * @return {object}
+ */
 function formatGame(g) {
   var game = {};
 
