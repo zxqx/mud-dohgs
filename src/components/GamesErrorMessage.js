@@ -7,7 +7,7 @@ export default class GamesErrorMessage extends Component {
   render() {
     return (
       <div styleName='error-message'>
-        Could not load schedule<br />
+        Could not load schedule.
       </div>
     );
   }
