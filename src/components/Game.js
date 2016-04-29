@@ -51,7 +51,7 @@ export default class Game extends Component {
 
     return (
       <li styleName={gameStyle}>
-        <a target="_blank" href="http://www.impactgoldaustin.com/wp-content/uploads/2014/07/Kreig-Fields-Map.pdf">
+        <a href="https://www.dropbox.com/s/rz3iwtfw5xfxtfi/krieg-fields-map.png?raw=1" target="_blank">
           <div styleName={gameStatusStyle}>
             <span styleName='schedule-date'>
               <span styleName='schedule-month'>{game.date.format('MMM')}</span>
