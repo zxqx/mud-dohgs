@@ -1,5 +1,5 @@
 {
-  "name": "softball-schedule",
+  "name": "mud-dohgs",
   "version": "0.1.0",
   "description": "A lightweight API and front end for viewing the Mud Dohgs softball schedule.",
   "main": "src/index.js",
