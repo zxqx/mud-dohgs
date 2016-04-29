@@ -1,6 +1,6 @@
 # Mud Dohgs
 
-A lightweight API and front end for viewing the Mud Dohgs softball schedule. This application scrapes and parses the Austin Parks & Recreation site for the team schedule and displays it in a mobile-friendly format.
+A lightweight API and front end for viewing and managing the Mud Dohgs softball schedule. This application scrapes and parses the Austin Parks & Recreation site for the team schedule and displays it in a mobile-friendly format.
 
 [![View Schedule](https://img.shields.io/badge/view-schedule-b49925.svg)](http://muddohgs.com/)
 
