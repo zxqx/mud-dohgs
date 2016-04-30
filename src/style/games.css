@@ -21,6 +21,7 @@
 .game {
   padding: 13px 20px;
   border-bottom: 1px solid #e6e5e3;
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {
