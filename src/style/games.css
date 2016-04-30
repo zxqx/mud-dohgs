@@ -133,20 +133,33 @@
   color: #333;
 }
 
-.field-map-modal {
+.modal {
   position: absolute;
-  top: 20px;
   left: 50%;
-  margin-left: -200px;
+  margin-left: -175px;
   width: 350px;
   text-align: center;
 }
 
-.field-map-modal:focus {
+.modal:focus {
   outline: none;
 }
 
+.modal-close-btn {
+  position: fixed;
+  left: 0;
+  padding: 20px;
+  display: block;
+  width: 100%;
+  background: #202020;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  border: none;
+}
+
 .field-map {
+  margin-top: 70px;
   width: 100%;
   max-width: 350px;
 }

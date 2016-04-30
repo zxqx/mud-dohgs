@@ -91,7 +91,12 @@ export default class Game extends Component {
           isOpen={this.state.modalIsOpen}
           onRequestClose={() => this.closeModal()}
           shouldCloseOnOverlayClick={true}
-          styleName='field-map-modal'>
+          styleName='modal'>
+
+          <button styleName='modal-close-btn' onClick={() => this.closeModal()}>
+            Close Map
+          </button>
+
           <img styleName='field-map' src='https://www.dropbox.com/s/rz3iwtfw5xfxtfi/krieg-fields-map.png?raw=1' alt='Krieg Field map' />
         </Modal>
       </li>
