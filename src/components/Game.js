@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Modal from 'react-modal';
 import cssModules from 'react-css-modules';
 import moment from 'moment';
 import gamesStyles from '../style/games.css';
@@ -8,6 +9,14 @@ export default class Game extends Component {
   static propTypes = {
     game: PropTypes.object.isRequired
   };
+
+  constructor() {
+    super();
+
+    this.state = {
+      modalIsOpen: false
+    }
+  }
 
   getGameStyle() {
     const { date } = this.props.game;
@@ -39,6 +48,14 @@ export default class Game extends Component {
     return this.props.game.homeTeam === 'Mud Dohgs' ? 'Home' : 'Away';
   }
 
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
+
   render() {
     const { game } = this.props;
 
@@ -51,7 +68,7 @@ export default class Game extends Component {
 
     return (
       <li styleName={gameStyle}>
-        <a href="https://www.dropbox.com/s/rz3iwtfw5xfxtfi/krieg-fields-map.png?raw=1" target="_blank">
+        <a onClick={() => this.openModal()}>
           <div styleName={gameStatusStyle}>
             <span styleName='schedule-date'>
               <span styleName='schedule-month'>{game.date.format('MMM')}</span>
@@ -69,6 +86,14 @@ export default class Game extends Component {
             </span>
           </div>
         </a>
+
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={() => this.closeModal()}
+          shouldCloseOnOverlayClick={true}
+          styleName='field-map-modal'>
+          <img styleName='field-map' src='https://www.dropbox.com/s/rz3iwtfw5xfxtfi/krieg-fields-map.png?raw=1' alt='Krieg Field map' />
+        </Modal>
       </li>
     );
   }

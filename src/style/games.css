@@ -132,3 +132,21 @@
   font-weight: 300;
   color: #333;
 }
+
+.field-map-modal {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  margin-left: -200px;
+  width: 350px;
+  text-align: center;
+}
+
+.field-map-modal:focus {
+  outline: none;
+}
+
+.field-map {
+  width: 100%;
+  max-width: 350px;
+}
