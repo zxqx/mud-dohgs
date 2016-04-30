@@ -1,3 +1,4 @@
+import 'whatwg-fetch';
 import Firebase from 'firebase';
 import { camelizeKeys } from 'humps';
 import moment from 'moment';
