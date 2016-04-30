@@ -161,10 +161,17 @@
 }
 
 .modal-close-btn:after {
-  margin-left: 6px;
   content: '\2716';
-  font-size: 16px;
+  position: relative;
+  top: -1px;
+  margin-left: 6px;
+  width: 15px;
+  height: 15px;
+  font-size: 12px;
   display: inline-block;
+  border-radius: 100%;
+  color: #202020;
+  background: #fff;
 }
 
 .field-map {
