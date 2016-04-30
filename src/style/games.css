@@ -1,3 +1,5 @@
+@import url('//weloveiconfonts.com/api/?family=entypo');
+
 .game-list {
   margin: 0 auto;
   padding: 5px 0 0;
@@ -136,8 +138,8 @@
 .modal {
   position: absolute;
   left: 50%;
-  margin-left: -175px;
-  width: 350px;
+  margin-left: -150px;
+  width: 300px;
   text-align: center;
 }
 
@@ -156,10 +158,19 @@
   font-size: 18px;
   color: #fff;
   border: none;
+  cursor: pointer;
+}
+
+.modal-close-btn:after {
+  font-family: 'entypo', sans-serif;
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 8px;
+  content: '\2716';
 }
 
 .field-map {
-  margin-top: 70px;
+  margin-top: 75px;
   width: 100%;
-  max-width: 350px;
+  max-width: 300px;
 }
