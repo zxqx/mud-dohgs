@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -30,7 +31,10 @@ module.exports = {
     }),
     new ExtractTextPlugin('index.css', {
       allChunks: true
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: './src/static/favicon.ico' }
+    ])
   ],
   resolve: {
     extensions: ['', '.js']
