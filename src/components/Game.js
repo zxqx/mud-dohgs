@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import cssModules from 'react-css-modules';
 import moment from 'moment';
 import gamesStyles from '../style/games.css';
+const fieldMapUrl = require('file!../static/krieg-field-map.png');
 
 @cssModules(gamesStyles)
 export default class Game extends Component {
@@ -67,25 +68,23 @@ export default class Game extends Component {
     const teamDugout = this.getTeamDugout();
 
     return (
-      <li styleName={gameStyle}>
-        <a onClick={() => this.openModal()}>
-          <div styleName={gameStatusStyle}>
-            <span styleName='schedule-date'>
-              <span styleName='schedule-month'>{game.date.format('MMM')}</span>
-              <span styleName='schedule-day'>{game.date.format('D')}</span>
-            </span>
+      <li styleName={gameStyle} onClick={() => this.openModal()}>
+        <div styleName={gameStatusStyle}>
+          <span styleName='schedule-date'>
+            <span styleName='schedule-month'>{game.date.format('MMM')}</span>
+            <span styleName='schedule-day'>{game.date.format('D')}</span>
+          </span>
 
-            <span>
-              <span styleName='schedule-time'>@ {game.time}</span>
-              <span styleName={awayTeamStyle}>{game.awayTeam} {game.awayScore}</span>
-              <span styleName={homeTeamStyle}> @ {game.homeTeam} {game.homeScore}</span>
-              <div>
-                <span styleName='schedule-location'>{game.location} -&nbsp;</span>
-                <span styleName='schedule-team-dugout'>{teamDugout}</span>
-              </div>
-            </span>
-          </div>
-        </a>
+          <span>
+            <span styleName='schedule-time'>@ {game.time}</span>
+            <span styleName={awayTeamStyle}>{game.awayTeam} {game.awayScore}</span>
+            <span styleName={homeTeamStyle}> @ {game.homeTeam} {game.homeScore}</span>
+            <div>
+              <span styleName='schedule-location'>{game.location} -&nbsp;</span>
+              <span styleName='schedule-team-dugout'>{teamDugout}</span>
+            </div>
+          </span>
+        </div>
 
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -97,7 +96,7 @@ export default class Game extends Component {
             Close Map
           </button>
 
-          <img styleName='field-map' src='https://www.dropbox.com/s/rz3iwtfw5xfxtfi/krieg-fields-map.png?raw=1' alt='Krieg Field map' />
+          <img styleName='field-map' src={fieldMapUrl} alt='Krieg Field map' />
         </Modal>
       </li>
     );
