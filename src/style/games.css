@@ -136,6 +136,9 @@
   margin-left: -150px;
   width: 300px;
   text-align: center;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
 }
 
 .modal:focus {
@@ -154,6 +157,9 @@
   color: #fff;
   border: none;
   cursor: pointer;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
 }
 
 .modal-close-btn:after {
@@ -170,7 +176,10 @@
   background: #fff;
   font: normal normal normal 11px/1 FontAwesome;
   text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
+}
+
+.modal-close-btn:focus {
+  outline: none;
 }
 
 .field-map {
