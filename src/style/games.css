@@ -2,7 +2,7 @@
 
 .game-list {
   margin: 0 auto;
-  padding: 5px 0 0;
+  padding: 0;
   max-width: 800px;
   list-style: none;
   border: 0;
@@ -22,12 +22,6 @@
   padding: 13px 20px;
   border-bottom: 1px solid #e6e5e3;
   cursor: pointer;
-}
-
-@media (max-width: 767px) {
-  .game:first-child {
-    padding-top: 8px;
-  }
 }
 
 .game-today {
