@@ -90,7 +90,9 @@ export default class Game extends Component {
           isOpen={this.state.modalIsOpen}
           onRequestClose={() => this.closeModal()}
           shouldCloseOnOverlayClick={true}
-          styleName='modal'>
+          styleName='modal'
+          style={{ overlay: { backgroundColor: 'rgba(0, 0, 0, 0.5)' }}}
+          >
 
           <button styleName='modal-close-btn' onClick={() => this.closeModal()}>
             Close Map
