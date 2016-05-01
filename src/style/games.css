@@ -165,7 +165,7 @@
 .modal-close-btn:after {
   content: '\f00d';
   position: relative;
-  top: -2px;
+  top: -1px;
   margin-left: 6px;
   width: 15px;
   height: 15px;
