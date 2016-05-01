@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import cssModules from 'react-css-modules';
 import moment from 'moment';
 import gamesStyles from '../style/games.css';
-const fieldMapUrl = require('file!../static/krieg-field-map.png');
+import fieldMapUrl from 'file!../static/krieg-field-map.png';
 
 @cssModules(gamesStyles)
 export default class Game extends Component {
@@ -89,16 +89,19 @@ export default class Game extends Component {
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={() => this.closeModal()}
-          shouldCloseOnOverlayClick={true}
           styleName='modal'
-          style={{ overlay: { backgroundColor: 'rgba(0, 0, 0, 0.5)' }}}
-          >
+          style={{ overlay: { backgroundColor: 'rgba(0, 0, 0, 0.5)' }}}>
 
-          <button styleName='modal-close-btn' onClick={() => this.closeModal()}>
+          <button
+            styleName='modal-close-btn'
+            onClick={() => this.closeModal()}>
             Close Map
           </button>
 
-          <img styleName='field-map' src={fieldMapUrl} alt='Krieg Field map' />
+          <img
+            styleName='field-map'
+            src={fieldMapUrl}
+            alt='Krieg Field map' />
         </Modal>
       </li>
     );
