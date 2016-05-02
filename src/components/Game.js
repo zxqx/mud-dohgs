@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import cssModules from 'react-css-modules';
 import moment from 'moment';
 import gamesStyles from '../style/games.css';
-import fieldMapUrl from 'file!../static/krieg-field-map.png';
+import fieldMap from 'file!../static/krieg-field-map.png';
 
 @cssModules(gamesStyles)
 export default class Game extends Component {
@@ -100,7 +100,7 @@ export default class Game extends Component {
 
           <img
             styleName='field-map'
-            src={fieldMapUrl}
+            src={fieldMap}
             alt='Krieg Field map' />
         </Modal>
       </li>
