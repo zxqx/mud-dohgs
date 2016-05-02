@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Modal from 'react-modal';
 import cssModules from 'react-css-modules';
 import moment from 'moment';
+import loadImages from 'load-images';
 import gamesStyles from '../style/games.css';
 import field1 from 'file!../static/krieg-field-01.png';
 import field2 from 'file!../static/krieg-field-02.png';
@@ -29,6 +30,10 @@ export default class Game extends Component {
     this.state = {
       modalIsOpen: false
     }
+  }
+
+  componentDidMount() {
+    loadImages(fields);
   }
 
   getGameStyle() {
