@@ -22,7 +22,6 @@
   padding: 13px 20px;
   border-bottom: 1px solid #e6e5e3;
   cursor: pointer;
-  -webkit-tap-highlight-color: rgba(247, 244, 231, 0.4);
   -webkit-transform: translateZ(0);
 }
 
