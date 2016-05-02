@@ -3,7 +3,19 @@ import Modal from 'react-modal';
 import cssModules from 'react-css-modules';
 import moment from 'moment';
 import gamesStyles from '../style/games.css';
-import fieldMap from 'file!../static/krieg-field-map.png';
+import field1 from 'file!../static/krieg-field-01.png';
+import field2 from 'file!../static/krieg-field-02.png';
+import field3 from 'file!../static/krieg-field-03.png';
+import field4 from 'file!../static/krieg-field-04.png';
+import field5 from 'file!../static/krieg-field-05.png';
+import field6 from 'file!../static/krieg-field-06.png';
+import field7 from 'file!../static/krieg-field-07.png';
+import field8 from 'file!../static/krieg-field-08.png';
+import field9 from 'file!../static/krieg-field-09.png';
+import field10 from 'file!../static/krieg-field-10.png';
+import field11 from 'file!../static/krieg-field-11.png';
+
+const fields = [field1, field2, field3, field4, field5, field6, field7, field8, field9, field10, field11];
 
 @cssModules(gamesStyles)
 export default class Game extends Component {
@@ -57,6 +69,11 @@ export default class Game extends Component {
     this.setState({ modalIsOpen: false });
   }
 
+  getFieldMap() {
+    let fieldNumber = parseInt(this.props.game.location.replace('Krieg ', ''));
+    return fields[fieldNumber - 1];
+  }
+
   render() {
     const { game } = this.props;
 
@@ -100,7 +117,7 @@ export default class Game extends Component {
 
           <img
             styleName='field-map'
-            src={fieldMap}
+            src={this.getFieldMap()}
             alt='Krieg Field map' />
         </Modal>
       </li>
