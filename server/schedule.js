@@ -89,7 +89,7 @@ function getGamesFromItems(items) {
 function formatGame(g) {
   var game = {};
 
-  game.date = g[0] + '/' + moment().format('YYYY');
+  game.date = `${g[0]}/${moment().format('YYYY')}`;
   game.time = g[1];
 
   game.away_team = g[2].replace(/\sW$|L$|\d+/g, '').trim();
