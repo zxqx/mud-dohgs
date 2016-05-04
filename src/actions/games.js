@@ -39,7 +39,7 @@ export function getGameList() {
 
     try {
       const res = await fetchGameList();
-      dispatch(fetchGameListRequestFailure());
+      dispatch(fetchGameListRequestSuccess());
       dispatch(updateGameList(res));
     } catch (e) {
       dispatch(fetchGameListRequestFailure());
