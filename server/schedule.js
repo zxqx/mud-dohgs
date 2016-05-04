@@ -3,8 +3,8 @@ const curl = require('curlrequest');
 const cheerio = require('cheerio');
 const htmlToJson = require('html-to-json');
 const moment = require('moment');
+const fetchScheduleUrl = require('./schedule-url.js');
 
-const REMOTE_DATA_STORE_ROOT = 'https://mud-dohgs.firebaseio.com';
 const GAME_TABLE_SELECTOR = '#ctl00_OrgContentUnit_ScheduleGrid_ctl00 tbody';
 
 module.exports = fetchSchedule;
@@ -16,21 +16,10 @@ module.exports = fetchSchedule;
  * @return {Promise}
  */
 function fetchSchedule() {
-  return getScheduleUrl()
+  return fetchScheduleUrl()
     .then(scheduleUrl => scrapeHtmlFromUrl(scheduleUrl))
     .then(html => convertScheduleToJson(html(GAME_TABLE_SELECTOR).html()))
     .then(scheduleJson => ({ data: scheduleJson }));
-}
-
-/**
- * Retrieve the current schedule URL from firebase
- */
-function getScheduleUrl() {
-  const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/schedule-url`);
-
-  return new Promise((resolve, reject) => {
-    ref.on('value', snapshot => resolve(snapshot.val().url));
-  });
 }
 
 /**

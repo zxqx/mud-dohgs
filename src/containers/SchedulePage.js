@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { getGameList } from '../actions/games';
+import { getGameList, getScheduleUrl } from '../actions/games';
 import LoadingIndicator from '../components/LoadingIndicator';
 import GamesErrorMessage from '../components/GamesErrorMessage';
 import GameList from '../components/GameList';
@@ -16,6 +16,7 @@ export default class SchedulePage extends Component {
 
   componentWillMount() {
     this.props.dispatch(getGameList());
+    this.props.dispatch(getScheduleUrl());
   }
 
   render() {
@@ -26,7 +27,7 @@ export default class SchedulePage extends Component {
     }
 
     if (games.failed) {
-      return <GamesErrorMessage />;
+      return <GamesErrorMessage scheduleUrl={games.scheduleUrl} />;
     }
 
     return <GameList games={games.data} />;

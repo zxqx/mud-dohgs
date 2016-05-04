@@ -41,6 +41,17 @@ a {
   text-align: center;
 }
 
+.schedule-url {
+  margin-top: 12px;
+  display: block;
+  font-size: 16px;
+  color: #428bca;
+}
+
+.schedule-url:hover {
+  text-decoration: underline;
+}
+
 .form {
   margin: 0 auto;
   padding-bottom: 20px;

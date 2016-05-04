@@ -5,9 +5,12 @@ import baseStyles from '../style/index.css';
 @cssModules(baseStyles)
 export default class GamesErrorMessage extends Component {
   render() {
+    const { scheduleUrl } = this.props;
+
     return (
       <div styleName='error-message'>
-        Could not load schedule.
+        <span>Could not load schedule.</span>
+        <a styleName='schedule-url' href={scheduleUrl}>View the schedule on Austin Parks &amp; Recreation</a>
       </div>
     );
   }

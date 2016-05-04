@@ -4,6 +4,7 @@ const express = require('express');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const fetchSchedule = require('./schedule');
+const fetchScheduleUrl = require('./schedule-url');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -33,6 +34,10 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('/api/schedule', (req, res) => {
   fetchSchedule().then(schedule => res.send(schedule));
+});
+
+app.get('/api/schedule/url', (req, res) => {
+  fetchScheduleUrl().then(scheduleUrl => res.send({ scheduleUrl }));
 });
 
 app.get('*', (req, res) => {

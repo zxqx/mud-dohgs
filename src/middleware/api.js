@@ -20,6 +20,16 @@ export async function fetchGameList() {
   return data;
 }
 
+export async function fetchScheduleUrl() {
+  const res = await fetch('/api/schedule/url');
+
+  if (!res.ok) {
+    return Promise.reject();
+  }
+
+  return await res.json();
+}
+
 export async function setScheduleUrl(url, password) {
   const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/schedule-url`);
 

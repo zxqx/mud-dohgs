@@ -1,4 +1,4 @@
-import { fetchGameList, setScheduleUrl } from '../middleware/api';
+import { fetchGameList, fetchScheduleUrl, setScheduleUrl } from '../middleware/api';
 
 export const FETCH_GAME_LIST_REQUEST = 'FETCH_GAME_LIST_REQUEST';
 export const FETCH_GAME_LIST_REQUEST_SUCCESS = 'FETCH_GAME_LIST_REQUEST_SUCCESS';
@@ -39,11 +39,18 @@ export function getGameList() {
 
     try {
       const res = await fetchGameList();
-      dispatch(fetchGameListRequestSuccess());
+      dispatch(fetchGameListRequestFailure());
       dispatch(updateGameList(res));
     } catch (e) {
       dispatch(fetchGameListRequestFailure());
     }
+  };
+}
+
+export function getScheduleUrl() {
+  return async dispatch => {
+    const res = await fetchScheduleUrl();
+    dispatch(updateScheduleUrlRequestSuccess(res.scheduleUrl));
   };
 }
 
