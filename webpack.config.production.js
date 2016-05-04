@@ -33,7 +33,8 @@ module.exports = {
       allChunks: true
     }),
     new CopyWebpackPlugin([
-      { from: './src/static/favicon.ico' }
+      { from: './src/static/icons/*.ico', flatten: true },
+      { from: './src/static/icons/*.png', flatten: true }
     ])
   ],
   resolve: {
