@@ -22,7 +22,7 @@ export default class SchedulePage extends Component {
   render() {
     const { games } = this.props;
 
-    if (games.loading) {
+    if (games.loadingGames) {
       return <LoadingIndicator />;
     }
 

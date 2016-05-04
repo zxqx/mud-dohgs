@@ -4,6 +4,7 @@ import * as types from '../actions/games';
 const initialState = {
   data: [],
   loading: false,
+  loadingGames: false,
   failed: false,
   scheduleUrl: null,
   saved: false
@@ -13,20 +14,20 @@ export default createReducer(initialState, {
   [types.FETCH_GAME_LIST_REQUEST](state) {
     return {
       ...state,
-      loading: true,
+      loadingGames: true,
       failed: false
     };
   },
   [types.FETCH_GAME_LIST_REQUEST_SUCCESS](state) {
     return {
       ...state,
-      loading: false
+      loadingGames: false
     };
   },
   [types.FETCH_GAME_LIST_REQUEST_FAILURE](state) {
     return {
       ...state,
-      loading: false,
+      loadingGames: false,
       failed: true
     };
   },
