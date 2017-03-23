@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 server/index.js",
+    "start": "nodemon --optimize_for_size --max_old_space_size=460 --gc_interval=100 server/index.js",
     "start:prod": "cross-env NODE_ENV=production node server/index.js",
     "clean": "rimraf lib dist coverage",
     "lint": "eslint src test",
@@ -49,6 +49,7 @@
     "fbjs-scripts": "^0.5.0",
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.10.0",
+    "nodemon": "^1.11.0",
     "react-addons-test-utils": "^0.14.7",
     "react-css-modules": "^3.7.6",
     "redux-devtools": "^3.1.1",
