@@ -104,6 +104,13 @@
   }
 }
 
+.schedule-time-at-symbol {
+  position: relative;
+  top: -1px;
+  margin-right: 3px;
+  font-size: 10px;
+}
+
 .schedule-at-symbol {
   position: relative;
   top: -2px;
