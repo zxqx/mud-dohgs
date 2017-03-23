@@ -18,8 +18,8 @@ export default class StandingsList extends Component {
             <tr>
               <th>Place</th>
               <th>Team</th>
-              <th>W-L</th>
-              <th>RD</th>
+              <th styleName='align-right'>W-L</th>
+              <th styleName='align-right'>RD</th>
             </tr>
           </thead>
 
@@ -28,8 +28,8 @@ export default class StandingsList extends Component {
               <tr key={standing.team}>
                 <td>{standing.place}</td>
                 <td>{standing.team}</td>
-                <td>{standing.wins}-{standing.losses}</td>
-                <td>{standing.runDifferential}</td>
+                <td styleName='align-right'>{standing.wins}-{standing.losses}</td>
+                <td styleName='align-right'>{standing.runDifferential}</td>
               </tr>
             )}
           </tbody>

@@ -1,6 +1,6 @@
 .standings {
   margin: 0 auto;
-  padding: 13px 20px 4px;
+  padding: 20px 30px 5px;
   border: 0;
   background: #fff;
   font-size: 18px;
@@ -10,7 +10,7 @@
 @media (min-width: 768px) {
   .standings {
     margin-top: 15px;
-    width: 760px;
+    width: 740px;
     border: 1px solid #e6e5e3;
   }
 }
@@ -41,4 +41,8 @@
 
 .standings-table tr:last-child td {
   border-bottom: none;
+}
+
+.align-right {
+  text-align: right !important;
 }

@@ -12,7 +12,10 @@ export default class LoadingIndicator extends Component {
     const { message } = this.props;
 
     return (
-      <div styleName='loading-indicator'>{message}</div>
+      <div>
+        <div styleName='loader'></div>
+        <div styleName='loading-indicator'>{message}</div>
+      </div>
     );
   }
 }
