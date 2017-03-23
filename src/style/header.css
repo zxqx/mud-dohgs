@@ -7,6 +7,12 @@
   box-shadow: 0 0 5px rgba(0, 0, 10, 0.5);
 }
 
+@media (min-width: 768px) {
+  .navbar {
+    box-shadow: 0 0 5px rgba(0, 0, 10px, 0.8);
+  }
+}
+
 .navbar-brand {
   margin: 0 auto;
   padding: 20px;
@@ -56,8 +62,72 @@
   margin-left: 25px;
 }
 
-@media (min-width: 768px) {
-  .navbar {
-    box-shadow: 0 0 5px rgba(0, 0, 10px, 0.8);
-  }
+.mobile-menu-container {
+  position: fixed;
+  left: -360px;
+  top: 0;
+  padding: 20px 20px 20px 40px;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  z-index: 10;
+  transition: left 0.3s;
+}
+
+.mobile-menu-icon {
+  position: relative;
+  top: 5px;
+  float: left;
+}
+
+.mobile-menu-icon div span:first-child {
+  margin-top: 0 !important;
+}
+
+.mobile-menu-icon:hover {
+  cursor: pointer;
+}
+
+.mobile-menu-icon-inner {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  float: right;
+}
+
+.mobile-menu-icon-inner:hover {
+  cursor: pointer;
+}
+
+.mobile-menu-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  width: 260px;
+}
+
+.mobile-menu ul {
+  padding: 0;
+  list-style: none;
+  font-size: 18px;
+}
+
+.mobile-menu a {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.mobile-menu a:hover {
+  text-decoration: underline;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.498039);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 9;
 }
