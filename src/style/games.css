@@ -13,7 +13,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .game-list {
     margin-top: 15px;
     padding-top: 0;
@@ -83,7 +83,7 @@
   color: #333;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .schedule-time {
     font-size: 13px;
   }
@@ -114,7 +114,7 @@
   font-size: 14px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 799px) {
   .schedule-at-symbol {
     font-size: 13px;
   }

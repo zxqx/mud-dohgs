@@ -7,7 +7,7 @@
   box-shadow: 0 0 5px rgba(0, 0, 10, 0.5);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .navbar {
     box-shadow: 0 0 5px rgba(0, 0, 10px, 0.8);
   }
@@ -34,7 +34,7 @@
   color: #fff;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 799px) {
   .navbar-team {
     float: none;
   }
@@ -52,7 +52,7 @@
   opacity: 0.8;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 799px) {
   .navbar-section {
     display: none;
   }
@@ -72,12 +72,20 @@
   background: #fff;
   z-index: 10;
   transition: left 0.3s;
+  display: none;
 }
 
 .mobile-menu-icon {
   position: absolute;
   top: 24px;
   float: left;
+  display: none;
+}
+
+@media (max-width: 799px) {
+  .mobile-menu-icon {
+    display: block;
+  }
 }
 
 .mobile-menu-icon:hover {
@@ -134,4 +142,11 @@
   opacity: 0;
   transition: opacity 0.3s;
   z-index: 9;
+  display: none;
+}
+
+@media (max-width: 799px) {
+  .mobile-menu-container, .overlay {
+    display: block;
+  }
 }
