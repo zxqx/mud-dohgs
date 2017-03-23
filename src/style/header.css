@@ -8,10 +8,13 @@
 }
 
 .navbar-brand {
+  margin: 0 auto;
   padding: 20px;
+  max-width: 760px;
   display: block;
   float: none;
   text-align: center;
+  overflow: hidden;
 }
 
 .navbar-header {
@@ -19,18 +22,26 @@
 }
 
 .navbar-team {
+  float: left;
   font-size: 18px;
   font-weight: 400;
   color: #fff;
 }
 
 .navbar-section {
+  position: relative;
+  top: 3px;
   margin-left: 4px;
   display: inline-block;
+  float: right;
   font-size: 14px;
   font-weight: 400;
   color: #fff;
   opacity: 0.8;
+}
+
+.navbar-link {
+  margin-left: 25px;
 }
 
 @media (min-width: 768px) {

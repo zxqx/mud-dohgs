@@ -30,6 +30,16 @@ export async function fetchScheduleUrl() {
   return await res.json();
 }
 
+export async function fetchStandings() {
+  const res = await fetch('/api/standings');
+
+  if (!res.ok) {
+    return Promise.reject();
+  }
+
+  return await res.json();
+}
+
 export async function setScheduleUrl(url, password) {
   const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/schedule-url`);
 

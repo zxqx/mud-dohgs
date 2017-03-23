@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const fetchSchedule = require('./schedule');
 const fetchScheduleUrl = require('./schedule-url');
+const fetchStandings = require('./standings');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -38,6 +39,10 @@ app.get('/api/schedule', (req, res) => {
 
 app.get('/api/schedule/url', (req, res) => {
   fetchScheduleUrl().then(scheduleUrl => res.send({ scheduleUrl }));
+});
+
+app.get('/api/standings', (req, res) => {
+  fetchStandings().then(standings => res.send(standings));
 });
 
 app.get('*', (req, res) => {

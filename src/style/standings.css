@@ -1,0 +1,45 @@
+.standings {
+  margin: 0 auto;
+  padding: 13px 20px 4px;
+  border: 0;
+  background: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .standings {
+    margin-top: 15px;
+    width: 760px;
+    border: 1px solid #e6e5e3;
+    box-shadow: 0 0 5px rgba(0, 0, 10, 0.1);
+  }
+}
+
+.standings-table {
+  width: 100%;
+  list-style: none;
+  border-collapse: collapse;
+}
+
+.standings-table:empty {
+  display: none;
+}
+
+.standings-table th {
+  text-align: left;
+}
+
+.standings-table th {
+  padding: 0 13px 8px;
+  border-bottom: 2px solid #e6e5e3;
+}
+
+.standings-table td {
+  padding: 13px;
+  border-bottom: 1px solid #e6e5e3;
+}
+
+.standings-table tr:last-child td {
+  border-bottom: none;
+}

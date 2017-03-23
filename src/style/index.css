@@ -36,7 +36,7 @@ a {
 .loading-indicator,
 .error-message {
   margin: 100px auto;
-  width: 300px;
+  max-width: 400px;
   font-size: 30px;
   text-align: center;
 }

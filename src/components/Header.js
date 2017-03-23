@@ -13,8 +13,12 @@ export default class Header extends Component {
         <div styleName='navbar-brand'>
           <Link to='/'>
             <span styleName='navbar-team'>Mud Dohgs</span>
-            <span styleName='navbar-section'>Schedule</span>
           </Link>
+
+          <span styleName='navbar-section'>
+            <Link to='/' styleName='navbar-link'>Schedule</Link>
+            <Link to='/standings' styleName='navbar-link'>Standings</Link>
+          </span>
         </div>
       </div>
     );
