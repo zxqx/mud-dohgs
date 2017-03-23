@@ -24,7 +24,7 @@ var bundler = new WebpackDevServer(compiler, {
   },
   proxy: {
     '*/api/*': {
-      target: 'http://localhost:8080',
+      target: 'http://localhost:8081',
       secure: false
     }
   },
@@ -49,5 +49,5 @@ app.get('*', (req, res) => {
   res.sendFile('index.html', { root: process.env.PWD + '/dist' });
 });
 
-app.listen(8080);
+app.listen(8081);
 bundler.listen(port);
