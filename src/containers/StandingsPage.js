@@ -4,7 +4,7 @@ import { getStandings } from '../actions/standings';
 import { getScheduleUrl } from '../actions/games';
 import LoadingIndicator from '../components/LoadingIndicator';
 import ErrorMessage from '../components/ErrorMessage';
-import StandingsList from '../components/StandingsList';
+import StandingsTable from '../components/StandingsTable';
 
 @connect(state => ({
   standings: state.standings,
@@ -38,6 +38,6 @@ export default class StandingsPage extends Component {
       );
     }
 
-    return <StandingsList standings={standings.data} />;
+    return <StandingsTable standings={standings.data} />;
   }
 }

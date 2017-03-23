@@ -3,7 +3,7 @@ import cssModules from 'react-css-modules';
 import standingsStyles from '../style/standings.css';
 
 @cssModules(standingsStyles)
-export default class StandingsList extends Component {
+export default class StandingsTable extends Component {
   static propTypes = {
     standings: PropTypes.array.isRequired
   };
@@ -25,7 +25,10 @@ export default class StandingsList extends Component {
 
           <tbody>
             {standings.map(standing =>
-              <tr key={standing.team}>
+              <tr
+                key={standing.team}
+                styleName={standing.team === 'Mud Dohgs' ? 'own-team' : ''}
+              >
                 <td>{standing.place}</td>
                 <td>{standing.team}</td>
                 <td styleName='align-right'>{standing.wins}-{standing.losses}</td>

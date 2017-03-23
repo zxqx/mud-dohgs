@@ -46,3 +46,7 @@
 .align-right {
   text-align: right !important;
 }
+
+.own-team {
+  font-weight: 700;
+}
