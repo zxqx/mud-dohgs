@@ -19,7 +19,7 @@ export default class StandingsList extends Component {
               <th>Place</th>
               <th>Team</th>
               <th>W-L</th>
-              <th>Diff</th>
+              <th>RD</th>
             </tr>
           </thead>
 
