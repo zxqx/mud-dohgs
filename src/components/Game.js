@@ -102,9 +102,13 @@ export default class Game extends Component {
               <span styleName='schedule-time-at-symbol'>@</span>
               {game.time}
             </span>
-            <span styleName={awayTeamStyle}>{game.awayTeam} {game.awayScore}</span>
-            <span styleName='schedule-at-symbol'>@</span>
-            <span styleName={homeTeamStyle}>{game.homeTeam} {game.homeScore}</span>
+
+            <div styleName='schedule-matchup'>
+              <span styleName={awayTeamStyle}>{game.awayTeam} {game.awayScore}</span>
+              <span styleName='schedule-at-symbol'>@</span>
+              <span styleName={homeTeamStyle}>{game.homeTeam} {game.homeScore}</span>
+            </div>
+
             <div>
               <span styleName='schedule-location'>{game.location} -&nbsp;</span>
               <span styleName='schedule-team-dugout'>{teamDugout}</span>

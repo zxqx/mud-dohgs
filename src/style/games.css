@@ -52,19 +52,19 @@
 }
 
 .schedule-month {
-  padding: 3px 0 2px;
+  padding: 2px 0 1px;
   display: block;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
   background: #b49925;
-  color: #eee;
+  color: #fff;
 }
 
 .schedule-day {
-  padding-bottom: 1px;
+  padding: 1px 0;
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 28px;
   background: #fff;
@@ -96,12 +96,8 @@
   display: inline-block;
 }
 
-@media(min-width: 768px) {
-  .schedule-away,
-  .schedule-home {
-    font-size: 20px;
-    line-height: 30px;
-  }
+.schedule-matchup {
+  margin: 6px 0 4px;
 }
 
 .schedule-time-at-symbol {
@@ -139,7 +135,6 @@
 }
 
 .schedule-location {
-  margin-top: 3px;
   margin-bottom: 3px;
   display: inline-block;
   font-size: 13px;
