@@ -97,7 +97,7 @@
 }
 
 .schedule-matchup {
-  margin: 6px 0 4px;
+  margin: 6px 0 3px;
 }
 
 .schedule-time-at-symbol {
@@ -111,7 +111,7 @@
   position: relative;
   top: -2px;
   margin: 0 6px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 @media (max-width: 767px) {
