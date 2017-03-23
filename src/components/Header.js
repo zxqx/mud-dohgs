@@ -105,7 +105,7 @@ export default class Header extends Component {
                   height={15}
                   strokeWidth={2}
                   rotate={0}
-                  color='#fff'
+                  color='#bbb'
                   borderRadius={0}
                   animationDuration={0.5}
                 />

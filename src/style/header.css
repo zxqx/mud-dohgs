@@ -75,9 +75,12 @@
 }
 
 .mobile-menu-icon {
-  position: relative;
-  top: 5px;
+  position: absolute;
+  top: 16px;
+  padding: 8px 10px 9px;
   float: left;
+  border-radius: 3px;
+  border: 1px solid #555;
 }
 
 .mobile-menu-icon div span:first-child {
