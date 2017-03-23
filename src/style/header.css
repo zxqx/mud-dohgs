@@ -28,6 +28,12 @@
   color: #fff;
 }
 
+@media (max-width: 767px) {
+  .navbar-team {
+    float: none;
+  }
+}
+
 .navbar-section {
   position: relative;
   top: 3px;
@@ -38,6 +44,12 @@
   font-weight: 400;
   color: #fff;
   opacity: 0.8;
+}
+
+@media (max-width: 767px) {
+  .navbar-section {
+    display: none;
+  }
 }
 
 .navbar-link {
