@@ -14,7 +14,7 @@ export default class Main extends Component {
 
     return (
       <div className={styles.container}>
-        <Header />
+        <Header path={this.props.location.pathname} />
         {this.props.children}
       </div>
     );

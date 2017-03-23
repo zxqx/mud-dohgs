@@ -26,7 +26,7 @@ export default class Header extends Component {
   }
 
   render() {
-    const { styles } = this.props;
+    const { path, styles } = this.props;
 
     return (
       <div>
@@ -90,8 +90,18 @@ export default class Header extends Component {
             </Link>
 
             <span styleName='navbar-section'>
-              <Link to='/' styleName='navbar-link'>Schedule</Link>
-              <Link to='/standings' styleName='navbar-link'>Standings</Link>
+              <Link
+                to='/'
+                styleName={path === '/' ? 'navbar-link-active' : 'navbar-link'}
+              >
+                Schedule
+              </Link>
+              <Link
+                to='/standings'
+                styleName={path === '/standings' ? 'navbar-link-active' : 'navbar-link'}
+              >
+                Standings
+              </Link>
             </span>
 
             <div styleName='mobile-menu-icon'>

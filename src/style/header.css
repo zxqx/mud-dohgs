@@ -150,3 +150,8 @@
     display: block;
   }
 }
+
+.navbar-link-active {
+  composes: navbar-link;
+  font-weight: 700;
+}
