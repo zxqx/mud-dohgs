@@ -83,6 +83,7 @@ function formatStanding(s) {
   standing.team = s[1];
   standing.wins = s[2];
   standing.losses = s[3];
+  standing.gamesBack = s[6];
   standing.runDifferential = s[9] > 0 ? `+${s[9]}` : s[9];
 
   return standing;
