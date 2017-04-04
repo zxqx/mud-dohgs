@@ -9,15 +9,12 @@
   background: #fff;
 }
 
-.game-list:empty {
-  display: none;
-}
-
-@media (min-width: 800px) {
+@media (min-width: 768px) {
   .game-list {
     margin-top: 15px;
     padding-top: 0;
     border: 1px solid #e6e5e3;
+    box-shadow: 0 0 5px rgba(0, 0, 10, 0.1);
   }
 }
 
@@ -52,19 +49,19 @@
 }
 
 .schedule-month {
-  padding: 3px 0 2px;
+  padding: 2px 0;
   display: block;
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 400;
   text-transform: uppercase;
   background: #b49925;
-  color: #fff;
+  color: #eee;
 }
 
 .schedule-day {
-  padding: 1px 0;
+  padding-bottom: 1px;
   display: block;
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 400;
   line-height: 28px;
   background: #fff;
@@ -73,14 +70,35 @@
 }
 
 .schedule-time {
-  position: relative;
-  top: 1px;
   margin-top: 1px;
   margin-bottom: 3px;
   display: block;
-  font-size: 12px;
-  font-weight: 200;
+  font-size: 13px;
+  font-weight: 300;
   color: #333;
+}
+
+.schedule-time-at-symbol {
+  position: relative;
+  top: -1px;
+  margin-right: 3px;
+  font-size: 80%;
+}
+
+.schedule-at-symbol {
+  position: relative;
+  top: -1px;
+  margin-right: 4px;
+}
+
+.schedule-matchup {
+
+}
+
+@media (min-width: 768px) {
+  .schedule-time {
+    font-size: 14px;
+  }
 }
 
 .schedule-away,
@@ -90,28 +108,16 @@
   display: inline-block;
 }
 
-.schedule-matchup {
-  margin: 6px 0 3px;
-}
-
-.schedule-time-at-symbol {
-  position: relative;
-  top: -1px;
-  margin-right: 3px;
-  font-size: 10px;
-}
-
-.schedule-at-symbol {
-  position: relative;
-  top: -2px;
-  margin: 0 6px;
-  font-size: 14px;
-}
-
-@media (max-width: 799px) {
-  .schedule-at-symbol {
-    font-size: 13px;
+@media(min-width: 768px) {
+  .schedule-away,
+  .schedule-home {
+    font-size: 20px;
+    line-height: 30px;
   }
+}
+
+.schedule-away {
+  margin-right: 5px;
 }
 
 .schedule-result {
@@ -119,27 +125,28 @@
 }
 
 .schedule-home-win {
-  font-weight: 700;
+  font-weight: 600;
   composes: schedule-home;
 }
 
 .schedule-away-win {
-  font-weight: 700;
+  font-weight: 600;
   composes: schedule-away;
 }
 
 .schedule-location {
+  margin-top: 3px;
   margin-bottom: 3px;
   display: inline-block;
   font-size: 13px;
-  font-weight: 200;
+  font-weight: 300;
   color: #333;
 }
 
 .schedule-team-dugout {
   display: inline-block;
   font-size: 13px;
-  font-weight: 200;
+  font-weight: 300;
   color: #333;
 }
 
@@ -163,10 +170,9 @@
   left: 0;
   padding: 20px;
   width: 100%;
-  height: 63px;
   display: block;
   background: #202020;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 18px;
   color: #fff;
   border: none;
@@ -182,8 +188,7 @@
   top: -2px;
   margin-left: 6px;
   padding-top: 2px;
-  padding-left: 1px;
-  width: 14px;
+  width: 15px;
   height: 13px;
   display: inline-block;
   border-radius: 100%;
