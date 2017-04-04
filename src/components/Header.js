@@ -96,6 +96,7 @@ export default class Header extends Component {
               >
                 Schedule
               </Link>
+
               <Link
                 to='/standings'
                 styleName={path === '/standings' ? 'navbar-link-active' : 'navbar-link'}

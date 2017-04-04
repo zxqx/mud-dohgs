@@ -14,7 +14,7 @@ export default class SchedulePage extends Component {
     dispatch: PropTypes.func.isRequired
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.dispatch(getGameList());
     this.props.dispatch(getScheduleUrl());
   }

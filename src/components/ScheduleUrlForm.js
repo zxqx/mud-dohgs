@@ -64,7 +64,10 @@ export default class ScheduleUrlForm extends Component {
           <input styleName='form-field' type='password' id='password' name='password' value={this.state.password} onChange={this.handleChange.bind(this)} />
         </div>
 
-        <input styleName={this.getButtonStyle()} type='submit' value='Update' />
+        <button styleName={this.getButtonStyle()}>
+          Start New Season
+        </button>
+
         {failed ? <div>The price is wrong, bitch.</div> : null}
         {saved ? <div>Saved.</div> : null}
       </form>

@@ -15,7 +15,7 @@ export async function fetchGameList() {
   let data = await res.json();
 
   data = camelizeKeys(data);
-  data.data.forEach(d => d.date = moment(d.date, 'ddd MM/DD/YYYY'));
+  data.data.forEach(d => d.date = moment(d.date));
 
   return data;
 }
@@ -40,6 +40,16 @@ export async function fetchStandings() {
   return await res.json();
 }
 
+export async function fetchRoster() {
+  const res = await fetch('/api/roster');
+
+  if (!res.ok) {
+    return Promise.reject();
+  }
+
+  return await res.json();
+}
+
 export async function setScheduleUrl(url, password) {
   const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/schedule-url`);
 
@@ -54,6 +64,25 @@ export async function setScheduleUrl(url, password) {
       else {
         ref.child('url').set(url);
         resolve(url);
+      }
+    });
+  });
+}
+
+export async function setRoster(roster) {
+  const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/roster`);
+
+  return new Promise((resolve, reject) => {
+    ref.authWithPassword({
+      email: 'SbJoZgk5Bn@tN9kZiIzUJ.com',
+      password: 'bigtits8'
+    }, (error, authData) => {
+      if (error) {
+        reject();
+      }
+      else {
+        ref.set(roster);
+        resolve(roster);
       }
     });
   });

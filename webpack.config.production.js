@@ -49,7 +49,15 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'),
+        exclude: /react-select\.css$/
+      },
+      {
+        test: /react-select\.css$/,
+        loaders: [
+          'style?sourceMap',
+          'css?sourceMap&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+        ]
       }
     ]
   },
