@@ -19,7 +19,6 @@ export default class StandingsTable extends Component {
               <th>Place</th>
               <th>Team</th>
               <th styleName='align-right'>W-L</th>
-              <th styleName='align-right'>GB</th>
               <th styleName='align-right'>RD</th>
             </tr>
           </thead>
@@ -33,7 +32,6 @@ export default class StandingsTable extends Component {
                 <td>{standing.place}</td>
                 <td>{standing.team}</td>
                 <td styleName='align-right'>{standing.wins}-{standing.losses}</td>
-                <td styleName='align-right'>{standing.gamesBack}</td>
                 <td styleName='align-right'>{standing.runDifferential}</td>
               </tr>
             )}

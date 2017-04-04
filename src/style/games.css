@@ -51,17 +51,17 @@
 .schedule-month {
   padding: 2px 0;
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
   text-transform: uppercase;
   background: #b49925;
-  color: #eee;
+  color: #fff;
 }
 
 .schedule-day {
   padding-bottom: 1px;
   display: block;
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 400;
   line-height: 28px;
   background: #fff;
@@ -93,12 +93,6 @@
 
 .schedule-matchup {
 
-}
-
-@media (min-width: 768px) {
-  .schedule-time {
-    font-size: 14px;
-  }
 }
 
 .schedule-away,
@@ -144,6 +138,7 @@
 }
 
 .schedule-team-dugout {
+  margin-top: 5px;
   display: inline-block;
   font-size: 13px;
   font-weight: 300;
@@ -206,4 +201,14 @@
   margin-top: 75px;
   width: 100%;
   max-width: 300px;
+}
+
+@media(min-width: 768px) {
+  .schedule-time {
+    margin-bottom: 2px;
+  }
+
+  .schedule-team-dugout {
+    margin-top: 0;
+  }
 }

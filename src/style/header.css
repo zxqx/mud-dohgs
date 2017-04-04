@@ -64,10 +64,10 @@
 
 .mobile-menu-container {
   position: fixed;
-  left: -360px;
+  left: -320px;
   top: 0;
   padding: 20px 20px 20px 40px;
-  width: 300px;
+  width: 260px;
   height: 100%;
   background: #fff;
   z-index: 10;
