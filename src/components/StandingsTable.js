@@ -29,7 +29,7 @@ export default class StandingsTable extends Component {
                 key={standing.team}
                 styleName={standing.team === 'Mud Dohgs' ? 'own-team' : ''}
               >
-                <td>{standing.place}</td>
+                <td>{standing.place || '--'}</td>
                 <td>{standing.team}</td>
                 <td styleName='align-right'>{standing.wins}-{standing.losses}</td>
                 <td styleName='align-right'>{standing.runDifferential}</td>
