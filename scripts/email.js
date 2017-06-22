@@ -7,7 +7,7 @@ const fetchRoster = require('../server/roster.js');
 
 dotenv.load();
 
-const TOMORROW = moment().startOf('day').subtract(1, 'day');
+const TOMORROW = moment().startOf('day').subtract(2, 'days');
 
 const smtpConfig = {
   service: 'Gmail',
