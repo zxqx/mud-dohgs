@@ -4,6 +4,7 @@ import App from '../containers/App';
 import SchedulePage from '../containers/SchedulePage';
 import StandingsPage from '../containers/StandingsPage';
 import CoachPage from '../containers/CoachPage';
+import RosterPage from '../containers/RosterPage';
 import NotFoundPage from '../containers/NotFoundPage';
 
 export default (
@@ -11,6 +12,7 @@ export default (
     <Route path='/' component={SchedulePage} />
     <Route path='standings' component={StandingsPage} />
     <Route path='coach' component={CoachPage} />
+    <Route path='roster' component={RosterPage} />
     <Route path='*' component={NotFoundPage} />
   </Route>
 );

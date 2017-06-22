@@ -6,6 +6,7 @@ const WebpackDevServer = require('webpack-dev-server');
 const fetchSchedule = require('./schedule');
 const fetchScheduleUrl = require('./schedule-url');
 const fetchStandings = require('./standings');
+const fetchRoster = require('./roster');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -25,6 +26,10 @@ app.get('/api/schedule/url', (req, res) => {
 
 app.get('/api/standings', (req, res) => {
   fetchStandings().then(standings => res.send(standings));
+});
+
+app.get('/api/roster', (req, res) => {
+  fetchRoster().then(roster => res.json(roster));
 });
 
 if (process.env.NODE_ENV === 'production') {

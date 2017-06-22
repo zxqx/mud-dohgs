@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+  list-style: none;
+  border-collapse: collapse;
+}
+
+table:empty {
+  display: none;
+}
+
+table th {
+  text-align: left;
+}
+
+table th {
+  padding: 0 13px 8px;
+  border-bottom: 2px solid #e6e5e3;
+}
+
+table td {
+  padding: 13px;
+  border-bottom: 1px solid #e6e5e3;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}

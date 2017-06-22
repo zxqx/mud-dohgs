@@ -17,7 +17,7 @@ export default class StandingsPage extends Component {
     dispatch: PropTypes.func.isRequired
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.dispatch(getStandings());
     this.props.dispatch(getScheduleUrl());
   }

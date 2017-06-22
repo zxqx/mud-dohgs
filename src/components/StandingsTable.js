@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import cssModules from 'react-css-modules';
 import standingsStyles from '../style/standings.css';
+import tableStyles from '../style/table.css';
 
 @cssModules(standingsStyles)
 export default class StandingsTable extends Component {
@@ -13,7 +14,7 @@ export default class StandingsTable extends Component {
 
     return (
       <div styleName='standings'>
-        <table styleName='standings-table'>
+        <table>
           <thead>
             <tr>
               <th>Place</th>
