@@ -24,7 +24,11 @@ Promise.all([
   fetchStandings(),
   fetchRoster()
 ])
-.then(([schedule, standings, roster]) => {
+.then(res => {
+  const schedule = res[0];
+  const standings = res[1];
+  const roster = res[2];
+
   const gameTomorrow = schedule.data
     .find(game => moment(game.date).isSame(TOMORROW))
 
