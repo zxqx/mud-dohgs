@@ -99,7 +99,6 @@ export default class RosterTable extends Component {
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Email</th>
               <th>Phone</th>
               <th>Gender</th>
               <th>Position</th>

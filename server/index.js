@@ -15,7 +15,6 @@ var config = process.env.NODE_ENV === 'production'
   ? config = require('../webpack.config.production')
   : require('../webpack.config');
 
-
 app.get('/api/schedule', (req, res) => {
   fetchSchedule().then(schedule => res.send(schedule));
 });

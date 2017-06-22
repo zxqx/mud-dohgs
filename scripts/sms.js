@@ -44,7 +44,7 @@ Mud Dohgs game tomorrow, ${date} at ${time}\n
 ${away_team} (${awayTeamStanding.wins}-${awayTeamStanding.losses}) @ ${home_team} (${homeTeamStanding.wins}-${homeTeamStanding.losses})
 ${location} - ${dugout}
 
-Forecast: ${forecast.weather[0].description}, ${Math.round(forecast.main.temp)} degrees
+Forecast is ${forecast.weather[0].description}, ${Math.round(forecast.main.temp)} degrees
 
 - Mudbot (woof woof)`
     })
