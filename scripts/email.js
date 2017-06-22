@@ -24,19 +24,11 @@ Promise.all([
   fetchStandings(),
   fetchRoster()
 ])
-.then(res => {
-  const schedule = res[0];
-  const standings = res[1];
-  const roster = res[2];
-
+.then(([schedule, standings, roster]) => {
   const gameTomorrow = schedule.data
     .find(game => moment(game.date).isSame(TOMORROW))
 
-  const away_team = gameTomorrow.away_team;
-  const home_team = gameTomorrow.home_team;
-  const time = gameTomorrow.time;
-  const location = gameTomorrow.location;
-
+  const { away_team, home_team, time, location } = gameTomorrow;
   const date = moment(gameTomorrow.date).format('MMMM D');
   const awayTeamStanding = standings.data.find(standing => standing.team === away_team);
   const homeTeamStanding = standings.data.find(standing => standing.team === home_team);

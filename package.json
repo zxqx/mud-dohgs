@@ -18,10 +18,10 @@
     "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json"
   },
   "devEngines": {
-    "node": "5.9.0"
+    "node": "8.1.0"
   },
   "engines": {
-    "node": "5.9.0"
+    "node": "8.1.0"
   },
   "repository": {
     "type": "git",
