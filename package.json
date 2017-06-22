@@ -15,7 +15,8 @@
     "version": "npm run build",
     "postversion": "git push && git push --tags && npm run clean",
     "prepublish": "npm run clean && npm run build",
-    "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json"
+    "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
+    "sms": "node scripts/sms.js"
   },
   "devEngines": {
     "node": "8.1.0"
@@ -72,6 +73,7 @@
     "load-images": "^0.1.1",
     "lodash": "^4.17.4",
     "moment": "^2.12.0",
+    "node-fetch": "^1.7.1",
     "nodemailer": "^3.1.8",
     "react": "^0.14.7",
     "react-dnd": "^2.3.0",
@@ -91,6 +93,7 @@
     "redux-form": "^6.6.1",
     "redux-logger": "^2.5.2",
     "redux-thunk": "^1.0.3",
+    "twilio": "^3.4.0",
     "whatwg-fetch": "^1.0.0"
   }
 }
