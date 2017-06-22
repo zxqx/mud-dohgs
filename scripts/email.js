@@ -9,7 +9,7 @@ dotenv.load();
 
 const TOMORROW = moment().startOf('day').subtract(1, 'day');
 
-let smtpConfig = {
+const smtpConfig = {
   service: 'Gmail',
   auth: {
     user: process.env.MUD_BOT_USER,
@@ -17,7 +17,7 @@ let smtpConfig = {
   }
 };
 
-let transporter = nodemailer.createTransport(smtpConfig);
+const transporter = nodemailer.createTransport(smtpConfig);
 
 Promise.all([
   fetchSchedule(),
