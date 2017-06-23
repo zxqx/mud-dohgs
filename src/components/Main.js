@@ -4,6 +4,7 @@ import cssModules from 'react-css-modules';
 import { auth, provider } from '../config/auth';
 import { authenticateUser, updateUser } from '../actions/user';
 import Header from './Header';
+import LoadingIndicator from './LoadingIndicator';
 import baseStyles from '../style/index.css';
 
 @connect(state => ({
@@ -16,9 +17,7 @@ export default class Main extends Component {
   };
 
   componentWillMount() {
-    const rootPath = this.getRootPath();
-
-    if (rootPath !== 'logout') {
+    if (!this.isLogoutPage()) {
       this.props.dispatch(authenticateUser());
     }
   }
@@ -27,19 +26,27 @@ export default class Main extends Component {
     return this.props.location.pathname.split('/')[1];
   }
 
+  isLogoutPage() {
+    return this.getRootPath() === 'logout';
+  }
+
   render() {
     const { user, styles } = this.props;
 
     const rootPath = this.getRootPath();
 
-    if (!user.attemptedAuthentication && rootPath !== 'logout') {
-      return <div>Attempting login...</div>;
+    if (!user.attemptedAuthentication && !this.isLogoutPage()) {
+      return (
+        <div className={styles.baseLoader}>
+          <LoadingIndicator message="Loading..." />
+        </div>
+      )
     }
 
     return (
       <div className={styles.container}>
         <Header
-          path={this.getRootPath()}
+          path={rootPath}
           user={user}
         />
         {this.props.children}

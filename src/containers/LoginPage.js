@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import { auth, provider } from '../config/auth';
+import LoadingIndicator from '../components/LoadingIndicator';
 
 export default class LoginPage extends Component {
   componentWillMount() {
@@ -16,7 +17,7 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <h1>Redirecting...</h1>
+      <LoadingIndicator message="Redirecting..." />
     );
   }
 
