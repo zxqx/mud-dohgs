@@ -1,5 +1,5 @@
 .roster-container {
-  margin: 20px auto 0;
+  margin: 10px auto 0;
   max-width: 800px;
 }
 
@@ -13,7 +13,7 @@
 
 @media (min-width: 800px) {
   .roster {
-    margin-top: 15px;
+    margin-top: 10px;
     border: 1px solid #e6e5e3;
   }
 }
@@ -140,15 +140,19 @@
 
 @media print {
   :global .Select-control {
-    position: relative;
-    top: 14px;
-    padding: 10px;
-    background: none;
-    border: none;
+    position: relative !important;
+    top: 14px !important;
+    padding: 10px !important;
+    background: none !important;
+    border: none !important;
+  }
+
+  :global .Select-placeholder {
+    display: none !important;
   }
 
   :global .Select-arrow-zone {
-    display: none;
+    display: none !important;
   }
 }
 

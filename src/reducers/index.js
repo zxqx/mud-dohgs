@@ -4,11 +4,13 @@ import { reducer as formReducer } from 'redux-form';
 import games from './games';
 import standings from './standings';
 import roster from './roster';
+import user from './user';
 
 const rootReducer = combineReducers({
   games,
   standings,
   roster,
+  user,
   routing,
   form: formReducer
 });

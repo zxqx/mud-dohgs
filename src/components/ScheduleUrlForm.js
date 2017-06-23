@@ -8,8 +8,7 @@ export default class ScheduleUrlForm extends Component {
     super();
 
     this.state = {
-      url: null,
-      password: null
+      url: null
     }
   }
 
@@ -34,14 +33,14 @@ export default class ScheduleUrlForm extends Component {
   }
 
   validateForm() {
-    const { url, password } = this.state;
+    const { url } = this.state;
 
-    return url && password && url.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/);
+    return url && url.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/);
   }
 
   render() {
     const { onSubmit, onFailure, loading, failed, saved } = this.props;
-    const { url, password } = this.state;
+    const { url } = this.state;
 
     return (
       <form styleName='form' onSubmit={(e) => {
@@ -51,21 +50,15 @@ export default class ScheduleUrlForm extends Component {
           return onFailure();
         }
 
-        onSubmit(url, password);
+        onSubmit(url);
       }}>
-        <h2 styleName='h2'>Coach Brim</h2>
         <div>
           <label styleName='form-label' htmlFor='url'>Schedule URL</label>
           <input styleName='form-field' type='text' id='url' name='url' value={this.state.url} onChange={this.handleChange.bind(this)} />
         </div>
 
-        <div>
-          <label styleName='form-label' htmlFor='password'>Password</label>
-          <input styleName='form-field' type='password' id='password' name='password' value={this.state.password} onChange={this.handleChange.bind(this)} />
-        </div>
-
         <button styleName={this.getButtonStyle()}>
-          Start New Season
+          Update
         </button>
 
         {failed ? <div>The price is wrong, bitch.</div> : null}

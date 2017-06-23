@@ -26,11 +26,12 @@ export default class RosterForm extends Component {
           onClick={window.print}
         >
           <MdPrint
-            title="Print Roster"
+            title="Print Lineup"
             size={11}
           />
-          Print Roster
+          Print Lineup
         </button>
+
         <div styleName="roster">
           <form onSubmit={handleSubmit}>
 

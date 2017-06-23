@@ -1,0 +1,44 @@
+.admin {
+  margin: 0 auto;
+  padding: 20px 30px 5px;
+  border: 0;
+  background: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+@media (min-width: 800px) {
+  .admin {
+    margin-top: 15px;
+    width: 740px;
+    border: 1px solid #e6e5e3;
+  }
+}
+
+@media print {
+  .sub-navbar {
+    display: none;
+  }
+}
+
+.sub-navbar {
+  margin: 15px auto 15px;
+  padding: 10px 20px;
+  width: 760px;
+  list-style: none;
+  border: 1px solid #e6e5e3;
+  background: #fff;
+}
+
+.sub-navbar li {
+  display: inline-block;
+}
+
+.sub-navbar-link {
+  margin-right: 20px;
+}
+
+.sub-navbar-link-active {
+  composes: sub-navbar-link;
+  font-weight: 600;
+}

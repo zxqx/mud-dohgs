@@ -126,7 +126,8 @@
 .mobile-menu ul {
   padding: 0;
   list-style: none;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .mobile-menu a {
@@ -160,4 +161,10 @@
 .navbar-link-active {
   composes: navbar-link;
   font-weight: 700;
+}
+
+.avatar {
+  margin: 0 8px -5px 80px;
+  width: 20px;
+  border-radius: 100%;
 }
