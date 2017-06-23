@@ -67,6 +67,7 @@ export default class Header extends Component {
                       Schedule
                     </Link>
                   </li>
+
                   <li>
                     <Link
                       to='/standings'
@@ -75,6 +76,37 @@ export default class Header extends Component {
                       Standings
                     </Link>
                   </li>
+
+                  {user.isLoggedIn && this.isAdminUser() &&
+                    <li>
+                      <Link
+                        to='/admin'
+                        onClick={this.toggleMenu.bind(this)}
+                      >
+                        Admin
+                      </Link>
+                    </li>
+                  }
+
+                  {user.isLoggedIn ?
+                    <li>
+                      <Link
+                        to='/logout'
+                        onClick={this.toggleMenu.bind(this)}
+                      >
+                        Logout
+                      </Link>
+                    </li>
+                  :
+                    <li>
+                      <Link
+                        to='/login'
+                        onClick={this.toggleMenu.bind(this)}
+                      >
+                        Login
+                      </Link>
+                    </li>
+                  }
                 </ul>
               </nav>
             </div>

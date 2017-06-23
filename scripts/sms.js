@@ -10,7 +10,7 @@ dotenv.load();
 
 const client = new twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
 
-const TOMORROW = moment().startOf('day').subtract(2, 'days');
+const TOMORROW = moment().startOf('day').subtract(3, 'days');
 
 function fetchWeather() {
   return fetch(`http://api.openweathermap.org/data/2.5/forecast?zip=78741,us&units=imperial&appid=${process.env.OPEN_WEATHER_API_KEY}`)
@@ -36,10 +36,11 @@ Promise.all([
     .find(slot => moment(slot.dt_txt) > moment(gameTomorrow.date));
 
   roster.forEach(player => {
-    client.messages.create({
-      to: player.phone,
-      from: '+13134668346',
-      body: `
+    if (player.phone) {
+      client.messages.create({
+        to: player.phone,
+        from: '+13134668346',
+        body: `
 Mud Dohgs game tomorrow, ${date} at ${time}\n
 ${away_team} (${awayTeamStanding.wins}-${awayTeamStanding.losses}) @ ${home_team} (${homeTeamStanding.wins}-${homeTeamStanding.losses})
 ${location} - ${dugout}
@@ -47,7 +48,8 @@ ${location} - ${dugout}
 Forecast is ${forecast.weather[0].description}, ${Math.round(forecast.main.temp)} degrees
 
 - Mudbot (woof woof)`
-    })
-    .then((message) => console.log(message.sid));
+      })
+      .then((message) => console.log(message.sid));
+    }
   });
 });

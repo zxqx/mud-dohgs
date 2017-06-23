@@ -22,12 +22,24 @@
 }
 
 .sub-navbar {
-  margin: 15px auto 15px;
+  margin: 0 auto 15px;
   padding: 10px 20px;
-  width: 760px;
+  max-width: 760px;
   list-style: none;
   border: 1px solid #e6e5e3;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
   background: #fff;
+}
+
+@media (min-width: 800px) {
+  .sub-navbar {
+    margin-top: 15px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+  }
 }
 
 .sub-navbar li {

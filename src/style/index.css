@@ -87,7 +87,9 @@ input:hover {
   padding: 20px;
   max-width: 760px;
   list-style: none;
-  border: 0;
+  border: 1px solid #e6e5e3;
+  border-right-width: 0;
+  border-left-width: 0;
   background: #fff;
   text-align: center;
 }
@@ -95,7 +97,8 @@ input:hover {
 @media (min-width: 800px) {
   .form {
     margin-top: 15px;
-    border: 1px solid #e6e5e3;
+    border-right-width: 1px;
+    border-left-width: 1px;
   }
 }
 
@@ -128,9 +131,16 @@ input:hover {
 
 .button-small {
   margin: 0;
+  margin-left: 20px;
   padding: 6px 10px;
   composes: button;
   font-size: 13px;
+}
+
+@media(min-width: 800px) {
+  .button-small {
+    margin-left: 0;
+  }
 }
 
 .button-small svg {

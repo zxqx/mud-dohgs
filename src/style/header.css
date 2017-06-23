@@ -164,7 +164,9 @@
 }
 
 .avatar {
-  margin: 0 8px -5px 80px;
+  position: relative;
+  top: -1px;
+  margin: 0 8px -7px 80px;
   width: 20px;
   border-radius: 100%;
 }

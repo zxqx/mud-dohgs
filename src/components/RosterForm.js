@@ -38,12 +38,13 @@ export default class RosterForm extends Component {
             <FieldArray name="players" component={RosterTable} />
 
             <div styleName="form-footer">
-              <span styleName="form-message">
-                {dirty ?
-                  'You have unsaved changes.'
-                : null}
-              </span>
-
+              {false &&
+                <span styleName="form-message">
+                  {dirty ?
+                    'You have unsaved changes.'
+                  : null}
+                </span>
+              }
               <button styleName="button" disabled={submitting}>Save Roster</button>
             </div>
           </form>
