@@ -1,29 +1,30 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { updateScheduleUrl, updateScheduleUrlRequestFailure } from '../actions/games';
+import { updateScheduleUrl, updateScheduleUrlRequestFailure, clearScheduleUrlState } from '../actions/schedule-url';
 import ScheduleUrlForm from '../components/ScheduleUrlForm';
 
 @connect(state => ({
-  loading: state.games.loading,
-  failed: state.games.failed,
-  saved: state.games.saved
+  scheduleUrl: state.scheduleUrl
 }))
-export default class CoachPage extends Component {
+export default class ScheduleUrlPage extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
-    loading: PropTypes.bool.isRequired,
-    failed: PropTypes.bool.isRequired,
-    saved: PropTypes.bool.isRequired
+    scheduleUrl: PropTypes.object.isRequired
   };
 
   render() {
-    const { dispatch, loading, failed, saved } = this.props;
+    const { scheduleUrl, dispatch } = this.props;
 
     return (
       <ScheduleUrlForm
         onSubmit={(url, password) => dispatch(updateScheduleUrl(url, password))}
         onFailure={() => dispatch(updateScheduleUrlRequestFailure())}
-        loading={loading} failed={failed} saved={saved} />
+        scheduleUrl={scheduleUrl}
+      />
     )
+  }
+
+  componentWillUnmount() {
+    this.props.dispatch(clearScheduleUrlState());
   }
 }

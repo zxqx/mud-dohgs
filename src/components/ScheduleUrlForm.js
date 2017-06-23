@@ -19,7 +19,7 @@ export default class ScheduleUrlForm extends Component {
   }
 
   getButtonStyle() {
-    const { loading, failed } = this.props;
+    const { loading, failed } = this.props.scheduleUrl;
 
     if (loading) {
       return 'button-loading';
@@ -39,7 +39,8 @@ export default class ScheduleUrlForm extends Component {
   }
 
   render() {
-    const { onSubmit, onFailure, loading, failed, saved } = this.props;
+    const { scheduleUrl, onSubmit, onFailure } = this.props;
+    const { loading, failed, saved } = scheduleUrl;
     const { url } = this.state;
 
     return (
