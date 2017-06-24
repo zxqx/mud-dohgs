@@ -29,24 +29,22 @@ export default class RosterForm extends Component {
   }
 
   render() {
-    const { handleSubmit, pristine, dirty, submitting, submitFailed } = this.props;
+    const { handleSubmit, pristine, dirty, invalid, submitting, submitFailed } = this.props;
 
     return (
       <div styleName="roster-container">
-        <button
-          styleName="button-small"
-          onClick={window.print}
-        >
-          <MdPrint
-            title="Print Lineup"
-            size={11}
-          />
-          Print Lineup
-        </button>
-
         <div styleName="roster">
-          <form onSubmit={handleSubmit}>
+          <button
+            styleName="button-print"
+            onClick={window.print}
+          >
+            <MdPrint
+              title="Print Lineup"
+              size={22}
+            />
+          </button>
 
+          <form onSubmit={handleSubmit}>
             <FieldArray name="players" component={RosterTable} />
 
             <div styleName="form-footer">
@@ -55,14 +53,15 @@ export default class RosterForm extends Component {
                   'You have unsaved changes.'
                 : null}
 
-                {submitFailed ?
+                {submitFailed && invalid ?
                   'The price is wrong, bitch.'
                 : null}
               </span>
 
-              <button styleName={submitFailed ? 'button-failed': 'button'} disabled={pristine || submitting}>
+              <button styleName={submitFailed && invalid ? 'button-failed': 'button'} disabled={pristine || submitting}>
                 {this.getButtonText()}
               </button>
+
             </div>
           </form>
         </div>

@@ -36,7 +36,7 @@ input {
   display: table;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   border-spacing: 0;
   border-collapse: separate;
   height: 32px;
@@ -84,7 +84,7 @@ input:hover {
 
 .form {
   margin: 0 auto;
-  padding: 20px;
+  padding: 25px 20px 20px;
   max-width: 760px;
   list-style: none;
   border: 1px solid #e6e5e3;
@@ -104,11 +104,12 @@ input:hover {
 
 .form-label {
   font-size: 22px;
+  font-weight: 400;
 }
 
 .form-field {
   margin: 9px auto;
-  padding: 4px;
+  padding: 4px 6px;
   width: 60%;
   min-width: 320px;
   display: block;
@@ -117,12 +118,12 @@ input:hover {
 }
 
 .button {
-  margin-top: 15px;
+  margin-top: 5px;
   margin-bottom: 10px;
   padding: 10px 30px;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
   color: #fff;
   background: #202020;
   border: 0;
@@ -138,23 +139,18 @@ input:hover {
   cursor: not-allowed;
 }
 
-.button-small {
-  margin: 0;
-  margin-left: 20px;
-  padding: 6px 10px;
+.button-print {
   composes: button;
-  font-size: 13px;
+  position: absolute;
+  top: 25px;
+  left: -59px;
+  padding: 6px 6px 8px 14px;
+  border-radius: 0;
 }
 
-@media(min-width: 800px) {
-  .button-small {
-    margin-left: 0;
-  }
-}
-
-.button-small svg {
-  margin-top: -3px;
-  margin-right: 5px;
+.button svg {
+  margin-top: -2px;
+  margin-right: 7px;
 }
 
 .button-loading {
