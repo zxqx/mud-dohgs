@@ -45,7 +45,9 @@ export async function fetchRoster() {
     return Promise.reject();
   }
 
-  return await res.json();
+  const data = await res.json();
+
+  return data.sort((a, b) => a.battingOrder - b.battingOrder);
 }
 
 export async function setScheduleUrl(url, password) {

@@ -13,11 +13,23 @@ import rosterStyles from '../style/roster.css';
     players: props.roster
   }
 }))
-@reduxForm({ form: 'rosterForm', validate })
+@reduxForm({ form: 'rosterForm', validate, enableReinitialize: true })
 @cssModules({ ...baseStyles, ...rosterStyles })
 export default class RosterForm extends Component {
+  getButtonText() {
+    if (this.props.submitting) {
+      return 'Saving...';
+    }
+    else if (this.props.dirty) {
+      return 'Save Roster';
+    }
+    else {
+      return 'Saved';
+    }
+  }
+
   render() {
-    const { handleSubmit, submitting, dirty } = this.props;
+    const { handleSubmit, pristine, dirty, submitting, submitFailed } = this.props;
 
     return (
       <div styleName="roster-container">
@@ -38,14 +50,19 @@ export default class RosterForm extends Component {
             <FieldArray name="players" component={RosterTable} />
 
             <div styleName="form-footer">
-              {false &&
-                <span styleName="form-message">
-                  {dirty ?
-                    'You have unsaved changes.'
-                  : null}
-                </span>
-              }
-              <button styleName="button" disabled={submitting}>Save Roster</button>
+              <span styleName="form-message">
+                {dirty && !submitting && !submitFailed ?
+                  'You have unsaved changes.'
+                : null}
+
+                {submitFailed ?
+                  'The price is wrong, bitch.'
+                : null}
+              </span>
+
+              <button styleName={submitFailed ? 'button-failed': 'button'} disabled={pristine || submitting}>
+                {this.getButtonText()}
+              </button>
             </div>
           </form>
         </div>

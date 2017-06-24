@@ -129,6 +129,15 @@ input:hover {
   border-radius: 4px;
 }
 
+.button[disabled] {
+  opacity: 0.5;
+}
+
+.button[disabled]:hover {
+  background: #202020;
+  cursor: not-allowed;
+}
+
 .button-small {
   margin: 0;
   margin-left: 20px;

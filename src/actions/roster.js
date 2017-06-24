@@ -6,6 +6,7 @@ export const FETCH_ROSTER_REQUEST_FAILURE = 'FETCH_ROSTER_REQUEST_FAILURE';
 export const UPDATE_SCHEDULE_URL_REQUEST = 'UPDATE_SCHEDULE_URL_REQUEST';
 export const UPDATE_SCHEDULE_URL_REQUEST_SUCCESS = 'UPDATE_SCHEDULE_URL_REQUEST_SUCCESS';
 export const UPDATE_SCHEDULE_URL_REQUEST_FAILURE = 'UPDATE_SCHEDULE_URL_REQUEST_FAILURE';
+export const UPDATE_ROSTER = 'UPDATE_ROSTER';
 
 export function fetchRosterRequest() {
   return {
@@ -39,8 +40,16 @@ export function getRoster() {
   };
 }
 
+export function updateRoster(payload) {
+  return {
+    type: UPDATE_ROSTER,
+    payload
+  };
+}
+
 export function setRoster(roster) {
   return async dispatch => {
-    const res = await api.setRoster(roster);
+    await api.setRoster(roster);
+    dispatch(updateRoster(roster));
   };
 }

@@ -29,5 +29,11 @@ export default createReducer(initialState, {
       loading: false,
       failed: true
     };
+  },
+  [types.UPDATE_ROSTER](state, action) {
+    return {
+      ...state,
+      data: action.payload
+    };
   }
 });
