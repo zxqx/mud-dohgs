@@ -119,6 +119,7 @@ export default class Game extends Component {
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={() => this.closeModal()}
+          contentLabel='Field Map'
           styleName='modal'
           style={{ overlay: { backgroundColor: 'rgba(0, 0, 0, 0.5)' }}}>
 
