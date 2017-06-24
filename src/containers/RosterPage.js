@@ -21,12 +21,9 @@ export default class RosterPage extends Component {
 
     return (
       <RosterForm
-        roster={roster.data
-          .concat()
-          .sort((a, b) => a.battingOrder - b.battingOrder)
-        }
+        roster={roster.data}
         onSubmit={data => {
-          this.props.dispatch(setRoster(data.players));
+          return this.props.dispatch(setRoster(data.players));
         }}
       />
     );

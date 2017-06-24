@@ -1,19 +1,40 @@
+.roster-container {
+  margin: 10px auto 0;
+  max-width: 800px;
+}
+
 .roster {
-  margin: 0 auto;
-  padding: 20px 30px 5px;
-  font-weight: 300;
-  max-width: 1000px;
+  position: relative;
+  margin-top: 10px;
+  padding: 10px 30px 5px;
+  font-weight: 400;
   list-style: none;
-  border: 0;
+  border: 1px solid #e6e5e3;
+  border-left-width: 0;
+  border-right-width: 0;
   background: #fff;
 }
 
 @media (min-width: 800px) {
   .roster {
-    margin-top: 15px;
-    width: 1000px;
-    border: 1px solid #e6e5e3;
+    border-left-width: 1px;
+    border-right-width: 1px;
   }
+}
+
+@media print {
+  .roster, .form-field {
+    font-size: 37px;
+  }
+
+  .form-field {
+    padding: 10px;
+    background: none;
+  }
+}
+
+.roster table {
+  margin-bottom: 5px;
 }
 
 .roster th, .roster td {
@@ -25,36 +46,125 @@
 }
 
 .roster th:first-child, .roster td:first-child {
-  width: 10%;
+  padding-left: 10px;
+  padding-right: 0;
+  width: 13%;
   cursor: move;
 }
 
 .roster th:nth-child(2), .roster td:nth-child(2) {
   padding-left: 5px;
-  width: 15%;
+  width: 25%;
 }
 
 .roster th:nth-child(3), .roster td:nth-child(3) {
   width: 25%;
 }
 
-.roster th:nth-child(5), .roster td:nth-child(5),
-.roster th:nth-child(6), .roster td:nth-child(6) {
+.roster th:nth-child(4), .roster td:nth-child(4),
+.roster th:nth-child(5), .roster td:nth-child(5) {
   padding-right: 0;
-  width: 11%;
+  width: 18%;
 }
 
 .roster th:nth-child(6), .roster td:nth-child(6) {
-  padding-left: 17px;
-}
-
-.roster th:nth-child(7), .roster td:nth-child(7) {
-  padding-left: 30px;
+  padding-left: 28px;
   width: 2%;
 }
 
-.form-field {
+.roster th:nth-child(7), .roster td:nth-child(7) {
+  width: 2%;
+}
 
+.roster input[type="checkbox"] {
+  margin-left: 7px;
+}
+
+@media print {
+  .roster-container {
+    margin-top: 10px;
+  }
+
+  .roster {
+    padding: 0;
+    border: none;
+    font-family: Arial;
+    font-weight: 700;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .roster td {
+    padding: 13px 0;
+  }
+
+  .roster tr {
+    display: none;
+  }
+
+  .roster tr:nth-child(-n+10){
+    display: table-row;
+  }
+
+  .roster tr:nth-child(even) td {
+    background: #f3f3f3;
+  }
+
+  .roster td:first-child {
+    padding-left: 20px;
+    width: 3%;
+    text-align: left;
+  }
+
+  .roster th {
+    display: none;
+  }
+
+  .roster td:nth-child(3),
+  .roster td:nth-child(4),
+  .roster td:nth-child(6),
+  .roster td:nth-child(7),
+  .add-player-button {
+    display: none;
+  }
+
+  .roster th:nth-child(2) {
+    width: 92%;
+  }
+
+  .roster td:nth-child(5) {
+    width: 5%;
+    text-align: center;
+  }
+}
+
+.form-field {
+  font-weight: 400;
+}
+
+@media print {
+  .form-field {
+    font-family: Arial;
+    font-weight: 700;
+    border: none;
+  }
+}
+
+@media print {
+  :global .Select-control {
+    position: relative !important;
+    top: 14px !important;
+    padding: 10px !important;
+    background: none !important;
+    border: none !important;
+  }
+
+  :global .Select-placeholder {
+    display: none !important;
+  }
+
+  :global .Select-arrow-zone {
+    display: none !important;
+  }
 }
 
 .form-field-error {
@@ -64,11 +174,16 @@
 .roster td.add-player-button {
   padding: 15px;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   background: #f8f8f8;
   border-bottom: 1px solid #e6e5e3;
+  transition: background 0.2s;
   cursor: pointer;
+}
+
+.roster td.add-player-button:hover {
+  background: #f1f1f1;
 }
 
 .paid-field input:hover {
@@ -83,8 +198,13 @@
   cursor: pointer;
 }
 
-.remove-player-button:hover {
-  cursor: pointer !important;
+.remove-player-button svg {
+  transition: opacity 0.2s;
+}
+
+.remove-player-button svg:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .form-footer {
@@ -92,5 +212,36 @@
 }
 
 .form-message {
-  margin-right: 10px;
+  margin-right: 5px;
+}
+
+.battingOrder span {
+  margin-left: -5px;
+}
+
+@media print {
+  .battingOrder svg {
+    display: none;
+  }
+
+  .battingOrder span {
+    margin-top: -10px;
+    margin-left: 0;
+    padding-top: 5px;
+    padding-right: 1px;
+    width: 37px;
+    height: 33px;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: -2px;
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: 100%;
+  }
+}
+
+.roster button {
+  margin-left: 10px;
 }

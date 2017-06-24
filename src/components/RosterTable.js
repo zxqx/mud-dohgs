@@ -99,7 +99,6 @@ export default class RosterTable extends Component {
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Email</th>
               <th>Phone</th>
               <th>Gender</th>
               <th>Position</th>
@@ -133,7 +132,7 @@ export default class RosterTable extends Component {
                   size={16}
                   style={{ marginTop: '-4px' }}
                 />
-                <span>Add New Player</span>
+                <span>Add Player</span>
               </td>
             </tr>
           </tbody>

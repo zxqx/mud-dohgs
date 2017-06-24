@@ -1,12 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { getGameList, getScheduleUrl } from '../actions/games';
+import { getGameList } from '../actions/games';
+import { getScheduleUrl } from '../actions/schedule-url';
 import LoadingIndicator from '../components/LoadingIndicator';
 import ErrorMessage from '../components/ErrorMessage';
 import GameList from '../components/GameList';
 
 @connect(state => ({
-  games: state.games
+  games: state.games,
+  scheduleUrl: state.scheduleUrl.scheduleUrl
 }))
 export default class SchedulePage extends Component {
   static propTypes = {
@@ -20,9 +22,9 @@ export default class SchedulePage extends Component {
   }
 
   render() {
-    const { games } = this.props;
+    const { games, scheduleUrl } = this.props;
 
-    if (games.loadingGames) {
+    if (games.loading) {
       return <LoadingIndicator message="Loading schedule..." />;
     }
 
@@ -30,7 +32,7 @@ export default class SchedulePage extends Component {
       return (
         <ErrorMessage
           message="Could not load schedule."
-          scheduleUrl={games.scheduleUrl}
+          scheduleUrl={scheduleUrl}
         />
       );
     }

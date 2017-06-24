@@ -1,13 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const dotenv = require('dotenv');
+
+dotenv.load();
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-dev-server/client?http://localhost:3000/',
     'webpack/hot/dev-server',
-    'webpack-hot-middleware/client',
     './src/index'
   ],
   output: {
@@ -19,7 +21,11 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development')
+        NODE_ENV: JSON.stringify('development'),
+        FIREBASE_API_KEY: JSON.stringify(process.env.FIREBASE_API_KEY),
+        FIREBASE_AUTH_DOMAIN: JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
+        FIREBASE_DATABASE_URL: JSON.stringify(process.env.FIREBASE_DATABASE_URL),
+        FIREBASE_ADMIN_USERS: JSON.stringify(process.env.FIREBASE_ADMIN_USERS)
       }
     }),
     new HtmlWebpackPlugin({

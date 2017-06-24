@@ -1,9 +1,7 @@
 import 'whatwg-fetch';
-import Firebase from 'firebase';
 import { camelizeKeys } from 'humps';
 import moment from 'moment';
-
-const REMOTE_DATA_STORE_ROOT = 'https://mud-dohgs.firebaseio.com';
+import config from '../config/auth';
 
 export async function fetchGameList() {
   const res = await fetch('/api/schedule');
@@ -47,43 +45,25 @@ export async function fetchRoster() {
     return Promise.reject();
   }
 
-  return await res.json();
+  const data = await res.json();
+
+  return data.sort((a, b) => a.battingOrder - b.battingOrder);
 }
 
 export async function setScheduleUrl(url, password) {
-  const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/schedule-url`);
+  const ref = config.db.ref('schedule-url');
 
   return new Promise((resolve, reject) => {
-    ref.authWithPassword({
-      email: 'SbJoZgk5Bn@tN9kZiIzUJ.com',
-      password: password
-    }, (error, authData) => {
-      if (error) {
-        reject();
-      }
-      else {
-        ref.child('url').set(url);
-        resolve(url);
-      }
-    });
+    ref.child('url').set(url);
+    resolve(url);
   });
 }
 
 export async function setRoster(roster) {
-  const ref = new Firebase(`${REMOTE_DATA_STORE_ROOT}/roster`);
+  const ref = config.db.ref('roster');
 
   return new Promise((resolve, reject) => {
-    ref.authWithPassword({
-      email: 'SbJoZgk5Bn@tN9kZiIzUJ.com',
-      password: 'bigtits8'
-    }, (error, authData) => {
-      if (error) {
-        reject();
-      }
-      else {
-        ref.set(roster);
-        resolve(roster);
-      }
-    });
+    ref.set(roster);
+    resolve(roster);
   });
 }

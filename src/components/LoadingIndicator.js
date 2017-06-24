@@ -5,7 +5,7 @@ import styles from '../style/index.css';
 @cssModules(styles)
 export default class LoadingIndicator extends Component {
   static propTypes = {
-    message: PropTypes.string.isRequired
+    message: PropTypes.string
   };
 
   render() {

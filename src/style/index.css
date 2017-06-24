@@ -36,7 +36,7 @@ input {
   display: table;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   border-spacing: 0;
   border-collapse: separate;
   height: 32px;
@@ -84,11 +84,12 @@ input:hover {
 
 .form {
   margin: 0 auto;
-  padding-bottom: 20px;
-  min-height: 300px;
-  max-width: 800px;
+  padding: 25px 20px 20px;
+  max-width: 760px;
   list-style: none;
-  border: 0;
+  border: 1px solid #e6e5e3;
+  border-right-width: 0;
+  border-left-width: 0;
   background: #fff;
   text-align: center;
 }
@@ -96,18 +97,19 @@ input:hover {
 @media (min-width: 800px) {
   .form {
     margin-top: 15px;
-    border: 1px solid #e6e5e3;
-    box-shadow: 0 0 5px rgba(0, 0, 10, 0.1);
+    border-right-width: 1px;
+    border-left-width: 1px;
   }
 }
 
 .form-label {
   font-size: 22px;
+  font-weight: 400;
 }
 
 .form-field {
-  margin: 9px auto 25px;
-  padding: 4px;
+  margin: 9px auto;
+  padding: 4px 6px;
   width: 60%;
   min-width: 320px;
   display: block;
@@ -116,15 +118,39 @@ input:hover {
 }
 
 .button {
-  margin-top: 15px;
+  margin-top: 5px;
   margin-bottom: 10px;
   padding: 10px 30px;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
   color: #fff;
   background: #202020;
   border: 0;
+  border-radius: 4px;
+}
+
+.button[disabled] {
+  opacity: 0.5;
+}
+
+.button[disabled]:hover {
+  background: #202020;
+  cursor: not-allowed;
+}
+
+.button-print {
+  composes: button;
+  position: absolute;
+  top: 25px;
+  left: -59px;
+  padding: 6px 6px 8px 14px;
+  border-radius: 0;
+}
+
+.button svg {
+  margin-top: -2px;
+  margin-right: 7px;
 }
 
 .button-loading {
@@ -144,6 +170,12 @@ input:hover {
 
 .button-failed:hover {
   background: #e86864;
+}
+
+@media print {
+  .button {
+    display: none;
+  }
 }
 
 .loader {
@@ -189,4 +221,8 @@ input:hover {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+.baseLoader {
+  margin-top: 160px;
 }

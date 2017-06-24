@@ -1,4 +1,3 @@
-const Firebase = require('firebase');
 const curl = require('curlrequest');
 const cheerio = require('cheerio');
 const htmlToJson = require('html-to-json');

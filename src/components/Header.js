@@ -25,8 +25,13 @@ export default class Header extends Component {
     }
   }
 
+  isAdminUser() {
+    const { user } = this.props;
+    return process.env.FIREBASE_ADMIN_USERS.split(',').indexOf(user.email) !== -1;
+  }
+
   render() {
-    const { path, styles } = this.props;
+    const { path, user, styles } = this.props;
 
     return (
       <div>
@@ -62,6 +67,7 @@ export default class Header extends Component {
                       Schedule
                     </Link>
                   </li>
+
                   <li>
                     <Link
                       to='/standings'
@@ -70,6 +76,37 @@ export default class Header extends Component {
                       Standings
                     </Link>
                   </li>
+
+                  {user.isLoggedIn && this.isAdminUser() &&
+                    <li>
+                      <Link
+                        to='/admin'
+                        onClick={this.toggleMenu.bind(this)}
+                      >
+                        Admin
+                      </Link>
+                    </li>
+                  }
+
+                  {user.isLoggedIn ?
+                    <li>
+                      <Link
+                        to='/logout'
+                        onClick={this.toggleMenu.bind(this)}
+                      >
+                        Logout
+                      </Link>
+                    </li>
+                  :
+                    <li>
+                      <Link
+                        to='/login'
+                        onClick={this.toggleMenu.bind(this)}
+                      >
+                        Login
+                      </Link>
+                    </li>
+                  }
                 </ul>
               </nav>
             </div>
@@ -92,17 +129,48 @@ export default class Header extends Component {
             <span styleName='navbar-section'>
               <Link
                 to='/'
-                styleName={path === '/' ? 'navbar-link-active' : 'navbar-link'}
+                styleName={path === '' ? 'navbar-link-active' : 'navbar-link'}
               >
                 Schedule
               </Link>
 
               <Link
                 to='/standings'
-                styleName={path === '/standings' ? 'navbar-link-active' : 'navbar-link'}
+                styleName={path === 'standings' ? 'navbar-link-active' : 'navbar-link'}
               >
                 Standings
               </Link>
+
+              {user.isLoggedIn && this.isAdminUser() &&
+                <Link
+                  to='/admin'
+                  styleName={path === 'admin' ? 'navbar-link-active' : 'navbar-link'}
+                >Admin</Link>
+              }
+
+              {user.isLoggedIn &&
+                <a href="#">
+                  <img
+                    styleName='avatar'
+                    src={user.photoURL}
+                    alt={user.displayName}
+                  />
+                  {user.displayName}
+                </a>
+              }
+
+              {user.isLoggedIn ?
+                <Link styleName="navbar-link" to='/logout'>
+                  Logout
+                </Link>
+              :
+                <Link
+                  to='/login'
+                  styleName={path === 'login' ? 'navbar-link-active' : 'navbar-link'}
+                >
+                  Login
+                </Link>
+              }
             </span>
 
             <div styleName='mobile-menu-icon'>

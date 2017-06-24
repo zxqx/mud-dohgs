@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { DragSource, DropTarget, DragDropContext } from 'react-dnd';
 import { Field } from 'redux-form';
 import cssModules from 'react-css-modules';
-import MdCancel from 'react-icons/lib/md/cancel';
+import MdDelete from 'react-icons/lib/md/delete';
 import MdDragHandle from 'react-icons/lib/md/drag-handle';
 import RFSelect from './RFSelect.js';
 import baseStyles from '../style/index.css';
@@ -90,7 +90,7 @@ export default class RosterRow extends Component {
     return connectDragPreview(connectDropTarget(
       <tr>
         {connectDragSource(
-          <td>
+          <td className={rosterStyles.battingOrder}>
             <MdDragHandle
               size={16}
               style={{
@@ -114,15 +114,6 @@ export default class RosterRow extends Component {
             type="text"
             component={InputField}
             label="Name"
-          />
-        </td>
-
-        <td>
-          <Field
-            name={`${id}.email`}
-            type="text"
-            component={InputField}
-            label="Email"
           />
         </td>
 
@@ -163,7 +154,7 @@ export default class RosterRow extends Component {
         </td>
 
         <td styleName="remove-player-button">
-          <MdCancel
+          <MdDelete
             title="Remove player"
             size={20}
             onClick={deleteRow}
