@@ -149,14 +149,14 @@ export default class Header extends Component {
               }
 
               {user.isLoggedIn &&
-                <a href="#">
+                <span>
                   <img
                     styleName='avatar'
                     src={user.photoURL}
                     alt={user.displayName}
                   />
                   {user.displayName}
-                </a>
+                </span>
               }
 
               {user.isLoggedIn ?
