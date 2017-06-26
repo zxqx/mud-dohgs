@@ -24,7 +24,7 @@
 
 @media print {
   .roster, .form-field {
-    font-size: 37px;
+    font-size: 36px;
   }
 
   .form-field {
@@ -213,6 +213,12 @@
 
 .form-message {
   margin-right: 5px;
+}
+
+@media print {
+  .form-message {
+    display: none;
+  }
 }
 
 .battingOrder span {

@@ -8,13 +8,11 @@ import LogoutPage from '../containers/LogoutPage';
 import AdminPage from '../containers/AdminPage';
 import RosterPage from '../containers/RosterPage';
 import ScheduleUrlPage from '../containers/ScheduleUrlPage';
-import NotFoundPage from '../containers/NotFoundPage';
 
 export default (
   <Route component={App}>
     <Route path='/' component={SchedulePage} />
     <Route path='standings' component={StandingsPage} />
-    <Route path='roster' component={RosterPage} />
     <Route path='login' component={LoginPage} />
     <Route path='logout' component={LogoutPage} />
 
@@ -23,6 +21,7 @@ export default (
       <Route path='roster' component={RosterPage} />
       <Route path='schedule-url' component={ScheduleUrlPage} />
     </Route>
-    <Route path='*' component={NotFoundPage} />
+
+    <Redirect from='*' to='/' />
   </Route>
 );
