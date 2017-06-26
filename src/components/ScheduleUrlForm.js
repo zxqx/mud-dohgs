@@ -62,8 +62,10 @@ export default class ScheduleUrlForm extends Component {
           Update
         </button>
 
-        {failed ? <div>The price is wrong, bitch.</div> : null}
-        {saved ? <div>Saved.</div> : null}
+        <div styleName='form-message'>
+          {failed && 'The price is wrong, bitch.'}
+          {saved && 'Saved.'}
+        </div>
       </form>
     );
   }
