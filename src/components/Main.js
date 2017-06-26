@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import cssModules from 'react-css-modules';
-import { auth, provider } from '../config/auth';
 import { authenticateUser, updateUser } from '../actions/user';
 import Header from './Header';
 import LoadingIndicator from './LoadingIndicator';

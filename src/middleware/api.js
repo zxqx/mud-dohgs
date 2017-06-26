@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 import { camelizeKeys } from 'humps';
 import moment from 'moment';
-import config from '../config/auth';
+import config from '../config/server';
 
 export async function fetchGameList() {
   const res = await fetch('/api/schedule');

@@ -1,5 +1,5 @@
 import { browserHistory } from 'react-router';
-import { auth, provider } from '../config/auth';
+import { auth, provider } from '../config/server';
 
 export const UPDATE_USER = 'UPDATE_USER';
 export const CLEAR_USER = 'CLEAR_USER';
