@@ -10,7 +10,7 @@ dotenv.load();
 
 const client = new twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
 
-const TOMORROW = moment().startOf('day').subtract(3, 'days');
+const TOMORROW = moment().startOf('day').add(1, 'day');
 
 function fetchWeather() {
   return fetch(`http://api.openweathermap.org/data/2.5/forecast?zip=78741,us&units=imperial&appid=${process.env.OPEN_WEATHER_API_KEY}`)
