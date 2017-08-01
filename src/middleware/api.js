@@ -13,7 +13,7 @@ export async function fetchGameList() {
   let data = await res.json();
 
   data = camelizeKeys(data);
-  data.data.forEach(d => d.date = moment(d.date).tz('America/Chicago'));
+  data.data.forEach(d => d.date = moment(d.date).tz('America/Chicago').add(1, 'day'));
 
   return data;
 }
