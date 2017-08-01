@@ -77,7 +77,7 @@ function getGamesFromItems(items) {
 function formatGame(g) {
   var game = {};
 
-  game.date = moment(`${g[0]}/${moment().format('YYYY')}`, 'ddd MM/DD/YYYY').toISOString();
+  game.date = moment.utc(`${g[0]}/${moment().format('YYYY')}`, 'ddd MM/DD/YYYY').toISOString();
   game.time = g[1];
 
   game.away_team = g[2].replace(/\sW$|L$|\d+/g, '').trim();
