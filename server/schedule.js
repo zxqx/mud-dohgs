@@ -1,7 +1,7 @@
 const curl = require('curlrequest');
 const cheerio = require('cheerio');
 const htmlToJson = require('html-to-json');
-const moment = require('moment');
+const moment = require('moment-timezone');
 const fetchScheduleUrl = require('./schedule-url.js');
 
 const GAME_TABLE_SELECTOR = '#ctl00_OrgContentUnit_ScheduleGrid_ctl00 tbody';
@@ -77,7 +77,12 @@ function getGamesFromItems(items) {
 function formatGame(g) {
   var game = {};
 
-  game.date = moment.utc(`${g[0]}/${moment().format('YYYY')}`, 'ddd MM/DD/YYYY').add(1, 'day').toISOString();
+  game.date = moment(
+    `${g[0]}/${moment().format('YYYY')}`, 'ddd MM/DD/YYYY'
+  )
+  .tz('America/Chicago')
+  .toISOString();
+
   game.time = g[1];
 
   game.away_team = g[2].replace(/\sW$|L$|\d+/g, '').trim();
