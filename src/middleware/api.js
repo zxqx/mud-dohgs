@@ -1,6 +1,6 @@
 import 'whatwg-fetch';
 import { camelizeKeys } from 'humps';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import config from '../config/server';
 
 export async function fetchGameList() {
@@ -13,7 +13,7 @@ export async function fetchGameList() {
   let data = await res.json();
 
   data = camelizeKeys(data);
-  data.data.forEach(d => d.date = moment(d.date));
+  data.data.forEach(d => d.date = moment(d.date).tz('America/Chicago'));
 
   return data;
 }

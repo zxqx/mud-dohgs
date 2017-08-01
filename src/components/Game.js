@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Modal from 'react-modal';
 import cssModules from 'react-css-modules';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import loadImages from 'load-images';
 import gamesStyles from '../style/games.css';
 import field1 from 'file!../static/krieg-field-01.png';
@@ -38,7 +38,7 @@ export default class Game extends Component {
 
   getGameStyle() {
     const { date } = this.props.game;
-    const today = moment().startOf('day');
+    const today = moment().tz('America/Chicago').startOf('day');
 
     return date.startOf('day').diff(today) ? 'game' : 'game-today';
   }
@@ -55,7 +55,7 @@ export default class Game extends Component {
 
   getGameStatusStyle() {
     const { awayScore, homeScore, date } = this.props.game;
-    const today = moment().startOf('day');
+    const today = moment().tz('America/Chicago').startOf('day');
     const fiveDaysAgo = today.subtract(5, 'days').startOf('day');
     const noResults = awayScore === undefined && homeScore === undefined;
 

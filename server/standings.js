@@ -1,7 +1,6 @@
 const curl = require('curlrequest');
 const cheerio = require('cheerio');
 const htmlToJson = require('html-to-json');
-const moment = require('moment');
 const fetchScheduleUrl = require('./schedule-url.js');
 
 const STANDINGS_TABLE_SELECTOR = '#ctl00_OrgContentUnit_standingsGrid_ctl00 tbody';
